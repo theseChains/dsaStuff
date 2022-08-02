@@ -9,10 +9,10 @@ int main()
     
     std::cout << "number 0 is at index: " << linearSearch(numbers, 0) << '\n';
 
-    insertionSortIncr(numbers);
+    selectionSortIncr(numbers);
     printContainer(numbers);
 
-    insertionSortDecr(numbers);
+    selectionSortDecr(numbers);
     printContainer(numbers);
 
     std::array<int, 9> firstNumber{ 1, 0, 0, 0, 0, 0, 0, 0, 0 };
