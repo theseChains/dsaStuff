@@ -5,7 +5,7 @@
 
 int main()
 {
-    std::array<int, 10> numbers{ 5, 3, 9, 5, 0, 2, 1, 8, 6, 7 };
+    std::array<int, 10> numbers{ 5, 9, 9, 5, 0, 2, 1, 8, 6, 7 };
 
     mergeSort(numbers);
     printContainer(numbers);

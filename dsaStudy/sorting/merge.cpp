@@ -5,8 +5,8 @@ void merge(std::array<int, 10>& numbers, int firstIndex, int middleIndex, int la
 	const int firstSubarraySize{ middleIndex - firstIndex + 1 };
 	const int secondSubarraySize{ lastIndex - middleIndex };
 
-	std::vector<int> firstSubarray(firstSubarraySize + 1);
-	std::vector<int> secondSubarray(secondSubarraySize + 1);
+	std::vector<int> firstSubarray(firstSubarraySize);
+	std::vector<int> secondSubarray(secondSubarraySize);
 
 	for (int i{ 0 }; i < firstSubarraySize; ++i)
 	{
@@ -18,23 +18,36 @@ void merge(std::array<int, 10>& numbers, int firstIndex, int middleIndex, int la
 		secondSubarray[j] = numbers[static_cast<std::size_t>(middleIndex) + j + 1];
 	}
 
-	firstSubarray[firstSubarraySize] = 99;
-	secondSubarray[secondSubarraySize] = 99;
-
 	int firstSubIndex{ 0 };
 	int secondSubIndex{ 0 };
-	for (int k{ firstIndex }; k <= lastIndex; ++k)
+	int numbersIndex{ firstIndex };
+	while (firstSubIndex < firstSubarraySize && secondSubIndex < secondSubarraySize)
 	{
 		if (firstSubarray[firstSubIndex] <= secondSubarray[secondSubIndex])
 		{
-			numbers[k] = firstSubarray[firstSubIndex];
+			numbers[numbersIndex] = firstSubarray[firstSubIndex];
 			++firstSubIndex;
+			++numbersIndex;
 		}
 		else
 		{
-			numbers[k] = secondSubarray[secondSubIndex];
+			numbers[numbersIndex] = secondSubarray[secondSubIndex];
 			++secondSubIndex;
+			++numbersIndex;
 		}
+	}
+
+	// add the remaining elements if they exist
+	for (firstSubIndex; firstSubIndex < firstSubarraySize; ++firstSubIndex)
+	{
+		numbers[numbersIndex] = firstSubarray[firstSubIndex];
+		++numbersIndex;
+	}
+
+	for (secondSubIndex; secondSubIndex < secondSubarraySize; ++secondSubIndex)
+	{
+		numbers[numbersIndex] = secondSubarray[secondSubIndex];
+		++numbersIndex;
 	}
 }
 
