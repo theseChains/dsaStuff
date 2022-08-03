@@ -6,6 +6,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <vector>
 
 void insertionSortIncr(std::array<int, 10>& numbers);
 void insertionSortDecr(std::array<int, 10>& numbers);
@@ -13,6 +14,6 @@ void insertionSortDecr(std::array<int, 10>& numbers);
 void selectionSortIncr(std::array<int, 10>& numbers);
 void selectionSortDecr(std::array<int, 10>& numbers);
 
-void mergeSort(std::array<int, 10>& numbers);
+void mergeSort(std::array<int, 10>& numbers, int firstIndex = 0, int lastIndex = 9);
 
 #endif

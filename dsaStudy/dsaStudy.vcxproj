@@ -135,6 +135,7 @@
     <ClCompile Include="exercises\2.1-4.cpp" />
     <ClCompile Include="searching\linearSearch.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
+    <ClCompile Include="sorting\merge.cpp" />
     <ClCompile Include="sorting\selection.cpp" />
     <ClCompile Include="util\util.cpp" />
   </ItemGroup>
