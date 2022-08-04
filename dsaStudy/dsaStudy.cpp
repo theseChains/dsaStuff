@@ -10,5 +10,7 @@ int main()
     mergeSort(numbers);
     printContainer(numbers);
 
+    std::cout << "number 7 is at index: " << binarySearch(numbers, 7) << '\n';
+
     return 0;
 }

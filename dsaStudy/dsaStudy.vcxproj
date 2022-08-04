@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="dsaStudy.cpp" />
     <ClCompile Include="exercises\2.1-4.cpp" />
+    <ClCompile Include="searching\binarySearch.cpp" />
     <ClCompile Include="searching\linearSearch.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />
