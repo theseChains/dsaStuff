@@ -1,7 +1,7 @@
 #include "sorting.h"
 
 // key represents the current element
-void insertionSortIncr(std::array<int, 10>& numbers)
+void insertionSortIncr(std::array<int, util::arraySize>& numbers)
 {
 	// start with the second element
 	for (int j{ 1 }; j < std::ssize(numbers); ++j)
@@ -20,7 +20,7 @@ void insertionSortIncr(std::array<int, 10>& numbers)
 	}
 }
 
-void insertionSortDecr(std::array<int, 10>& numbers)
+void insertionSortDecr(std::array<int, util::arraySize>& numbers)
 {
 	// start with the second element
 	for (int j{ 1 }; j < std::ssize(numbers); ++j)

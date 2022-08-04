@@ -5,7 +5,9 @@
 #include <iostream>
 #include <iterator>
 
-int linearSearch(std::array<int, 10>& numbers, int value);
-int binarySearch(std::array<int, 10>& sortedNumbers, int value);
+#include "../util/util.h"
+
+int linearSearch(std::array<int, util::arraySize>& numbers, int value);
+int binarySearch(std::array<int, util::arraySize>& sortedNumbers, int value);
 
 #endif

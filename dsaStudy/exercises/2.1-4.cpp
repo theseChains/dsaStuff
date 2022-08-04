@@ -1,5 +1,4 @@
 #include "exercises.h"
-#include "../util/util.h"
 
 void addBinaryIntegers(std::array<int, 9>& firstNumber, std::array<int, 9>& secondNumber)
 {

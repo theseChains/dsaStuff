@@ -5,7 +5,8 @@
 
 int main()
 {
-    std::array<int, 10> numbers{ 5, 9, 9, 5, 0, 2, 1, 8, 6, 7 };
+    std::array<int, util::arraySize> numbers{};
+    generateContainer(numbers);
 
     mergeSort(numbers);
     printContainer(numbers);

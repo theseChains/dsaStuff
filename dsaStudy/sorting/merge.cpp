@@ -1,6 +1,6 @@
 #include "sorting.h"
 
-void merge(std::array<int, 10>& numbers, int firstIndex, int middleIndex, int lastIndex)
+void merge(std::array<int, util::arraySize>& numbers, int firstIndex, int middleIndex, int lastIndex)
 {
 	const int firstSubarraySize{ middleIndex - firstIndex + 1 };
 	const int secondSubarraySize{ lastIndex - middleIndex };
@@ -51,7 +51,7 @@ void merge(std::array<int, 10>& numbers, int firstIndex, int middleIndex, int la
 	}
 }
 
-void mergeSort(std::array<int, 10>& numbers, int firstIndex, int lastIndex)
+void mergeSort(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
 {
 	if (firstIndex < lastIndex)
 	{

@@ -2,7 +2,7 @@
 
 // aka exercise 2.2-2
 
-void selectionSortIncr(std::array<int, 10>& numbers)
+void selectionSortIncr(std::array<int, util::arraySize>& numbers)
 {
 	int size{ static_cast<int>(std::size(numbers)) };
 	for (int i{ 0 }; i < size - 1; ++i)
@@ -22,7 +22,7 @@ void selectionSortIncr(std::array<int, 10>& numbers)
 	}
 }
 
-void selectionSortDecr(std::array<int, 10>& numbers)
+void selectionSortDecr(std::array<int, util::arraySize>& numbers)
 {
 	int size{ static_cast<int>(std::size(numbers)) };
 	for (int i{ 0 }; i < size - 1; ++i)
