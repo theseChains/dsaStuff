@@ -1,6 +1,6 @@
 #include "util.h"
 
-void printContainer(std::array<int, 10>& container)
+void printContainer(std::array<int, util::arraySize>& container)
 {
 	for (auto element : container)
 	{
@@ -10,11 +10,11 @@ void printContainer(std::array<int, 10>& container)
 	std::cout << '\n';
 }
 
-int generateRandomNumber()
+int generateRandomNumber(int min, int max)
 {
 	static std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
 
-	std::uniform_int_distribution range{ 0, 9 };
+	std::uniform_int_distribution range{ min, max };
 
 	return range(mt);
 }

@@ -8,11 +8,11 @@
 
 namespace util
 {
-	inline constexpr int arraySize{ 10 };
+	inline constexpr int arraySize{ 15 };
 }
 
 void printContainer(std::array<int, util::arraySize>& container);
-int generateRandomNumber();
+int generateRandomNumber(int min = -5, int max = 20);
 void generateContainer(std::array<int, util::arraySize>& container);
 
 #endif

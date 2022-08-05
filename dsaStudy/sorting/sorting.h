@@ -16,6 +16,6 @@ void insertionSortDecr(std::array<int, util::arraySize>& numbers);
 void selectionSortIncr(std::array<int, util::arraySize>& numbers);
 void selectionSortDecr(std::array<int, util::arraySize>& numbers);
 
-void mergeSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = 9);
+void mergeSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 
 #endif

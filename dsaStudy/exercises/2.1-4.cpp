@@ -2,7 +2,7 @@
 
 void addBinaryIntegers(std::array<int, 9>& firstNumber, std::array<int, 9>& secondNumber)
 {
-	std::array<int, 10> result{};
+	std::array<int, util::arraySize> result{};
 
 	bool firstIteration{ true };
 	int carriedForward{ 0 };
