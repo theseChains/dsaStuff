@@ -18,6 +18,8 @@ int main()
         << "\nmaximum subarray last index: " << maxSubarrayInfo[util::lastItemIndex]
         << "\nthe subarray sum: " << maxSubarrayInfo[util::subarraySumIndex] << "\n\n";
 
+    std::cout << "(slow algo) max subarray sum: " << slowMaxSubarraySum(numbers) << "\n\n";
+
     std::cout << "sorted array:\n";
     mergeSort(numbers);
     printContainer(numbers);

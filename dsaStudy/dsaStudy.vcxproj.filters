@@ -27,7 +27,7 @@
     <ClCompile Include="searching\linearSearch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="exercises\2.1-4.cpp">
+    <ClCompile Include="exercises\addBinaryIntegers.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="sorting\selection.cpp">
@@ -40,6 +40,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="searching\findMaxSubarray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="exercises\slowMaxSubarray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

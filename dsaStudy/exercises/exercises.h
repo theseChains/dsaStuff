@@ -5,6 +5,7 @@
 
 #include "../util/util.h"
 
-void addBinaryIntegers(std::array<int, 9>& firstNumber, std::array<int, 9>& secondNumber);
+void addBinaryIntegers(const std::array<int, 9>& firstNumber, const std::array<int, 9>& secondNumber);
+int slowMaxSubarraySum(const std::array<int, util::arraySize>& numbers);
 
 #endif

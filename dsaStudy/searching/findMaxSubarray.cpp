@@ -1,8 +1,8 @@
 #include "searching.h"
 
-std::array<int, 3> findMaxCrossingSubarray(std::array<int, util::arraySize>& numbers, int low, int middle, int high);
+std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize>& numbers, int low, int middle, int high);
 
-std::array<int, 3> findMaxSubarray(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
+std::array<int, 3> findMaxSubarray(const std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
 {
 	// base case: only one element
 	if (firstIndex == lastIndex)
@@ -36,9 +36,12 @@ std::array<int, 3> findMaxSubarray(std::array<int, util::arraySize>& numbers, in
 // find the maximum subarray that crosses the midpoint
 // this algorithm is simpler because the subarray MUST 
 // contain the midpoint
-std::array<int, 3> findMaxCrossingSubarray(std::array<int, util::arraySize>& numbers, int low, int middle, int high)
+std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize>& numbers, int low, int middle, int high)
 {
-	int leftSum{ -1000 };
+	// cannot use std::numeric_limits<int>::min()
+	// because it will overflow in an array 
+	// with negative number
+	int leftSum{ -1000 }; 
 	int sum{ 0 };
 
 	int maxLeftIndex{};

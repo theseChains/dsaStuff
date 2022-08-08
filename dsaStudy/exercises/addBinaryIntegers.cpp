@@ -1,6 +1,8 @@
 #include "exercises.h"
 
-void addBinaryIntegers(std::array<int, 9>& firstNumber, std::array<int, 9>& secondNumber)
+// exercise 2.1-4
+
+void addBinaryIntegers(const std::array<int, 9>& firstNumber, const std::array<int, 9>& secondNumber)
 {
 	std::array<int, util::arraySize> result{};
 

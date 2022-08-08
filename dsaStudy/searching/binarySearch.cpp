@@ -2,7 +2,7 @@
 
 // aka exercise 2.3-5
 
-int binarySearch(std::array<int, util::arraySize>& sortedNumbers, int value)
+int binarySearch(const std::array<int, util::arraySize>& sortedNumbers, int value)
 {
 	int right{ util::arraySize - 1 };
 	int left{ 0 };

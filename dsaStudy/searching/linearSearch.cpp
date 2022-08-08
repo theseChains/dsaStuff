@@ -1,6 +1,6 @@
 #include "searching.h"
 
-int linearSearch(std::array<int, util::arraySize>& numbers, int value)
+int linearSearch(const std::array<int, util::arraySize>& numbers, int value)
 {
 	for (int index{ 0 }; auto element : numbers)
 	{

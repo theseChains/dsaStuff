@@ -16,7 +16,7 @@ namespace util
 	inline constexpr int subarraySumIndex{ 2 };
 }
 
-void printContainer(std::array<int, util::arraySize>& container);
+void printContainer(const std::array<int, util::arraySize>& container);
 int generateRandomNumber(int min = -10, int max = 10);
 void generateContainer(std::array<int, util::arraySize>& container);
 

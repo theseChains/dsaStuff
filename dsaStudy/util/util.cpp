@@ -1,6 +1,6 @@
 #include "util.h"
 
-void printContainer(std::array<int, util::arraySize>& container)
+void printContainer(const std::array<int, util::arraySize>& container)
 {
 	for (auto element : container)
 	{
