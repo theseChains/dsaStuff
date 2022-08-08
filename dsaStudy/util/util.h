@@ -8,7 +8,7 @@
 
 namespace util
 {
-	inline constexpr int arraySize{ 15 };
+	inline constexpr int arraySize{ 130 };
 
 	// findMaxSubarray.cpp
 	inline constexpr int firstItemIndex{ 0 };

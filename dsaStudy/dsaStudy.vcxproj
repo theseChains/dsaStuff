@@ -140,12 +140,14 @@
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />
     <ClCompile Include="sorting\selection.cpp" />
+    <ClCompile Include="util\timer.cpp" />
     <ClCompile Include="util\util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exercises\exercises.h" />
     <ClInclude Include="searching\searching.h" />
     <ClInclude Include="sorting\sorting.h" />
+    <ClInclude Include="util\timer.h" />
     <ClInclude Include="util\util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
