@@ -59,7 +59,7 @@ std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize
 	sum = 0;
 
 	int maxRightIndex{};
-	for (int j{ middle + 1 }; j < high; ++j)
+	for (int j{ middle + 1 }; j <= high; ++j)
 	{
 		sum += numbers[j];
 		if (sum > rightSum)

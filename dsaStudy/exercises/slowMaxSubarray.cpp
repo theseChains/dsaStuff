@@ -2,7 +2,6 @@
 
 // exercise 4.1-2
 
-// doesn't work
 int slowMaxSubarraySum(const std::array<int, util::arraySize>& numbers)
 {
 	int maxSum{ -1000 };
@@ -12,11 +11,11 @@ int slowMaxSubarraySum(const std::array<int, util::arraySize>& numbers)
 		for (int j{ i }; j < util::arraySize; ++j)
 		{
 			sum += numbers[j];
-		}
 
-		if (sum > maxSum)
-		{
-			maxSum = sum;
+			if (sum > maxSum)
+			{
+				maxSum = sum;
+			}
 		}
 	}
 
