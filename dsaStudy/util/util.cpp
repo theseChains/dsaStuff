@@ -21,11 +21,6 @@ int generateRandomNumber(int min, int max)
 
 void generateContainer(std::array<int, util::arraySize>& container)
 {
-	/*for (auto element : container)
-	{
-		element = generateRandomNumber();
-	}*/
-
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
 		container[i] = generateRandomNumber();
