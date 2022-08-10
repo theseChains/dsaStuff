@@ -48,6 +48,9 @@
     <ClCompile Include="util\timer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="exercises\fastMaxSubarray.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorting\sorting.h">

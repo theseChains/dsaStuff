@@ -27,6 +27,12 @@ int main()
     std::cout << "O(n^2) max subarray elapsed time (ms): " << timer.elapsed() << '\n';
     std::cout << "(slow algo) max subarray sum: " << slowSum << "\n\n";
 
+    timer.reset();
+    int fastSum{ fastMaxSubarraySum(numbers) };
+    std::cout << "O(n) max subarray elapsed time (ms): " << timer.elapsed() << '\n';
+    std::cout << "(fast algo) max subarray sum: " << fastSum << "\n\n";
+
+
     std::cout << "sorted array:\n";
     mergeSort(numbers);
     printContainer(numbers);
