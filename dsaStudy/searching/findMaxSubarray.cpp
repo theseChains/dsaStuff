@@ -38,10 +38,7 @@ std::array<int, 3> findMaxSubarray(const std::array<int, util::arraySize>& numbe
 // contain the midpoint
 std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize>& numbers, int low, int middle, int high)
 {
-	// cannot use std::numeric_limits<int>::min()
-	// because it will overflow in an array 
-	// with negative number
-	int leftSum{ -1000 }; 
+	int leftSum{ std::numeric_limits<int>::min() };
 	int sum{ 0 };
 
 	int maxLeftIndex{};
@@ -55,7 +52,7 @@ std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize
 		}
 	}
 
-	int rightSum{ -1000 };
+	int rightSum{ std::numeric_limits<int>::min() };
 	sum = 0;
 
 	int maxRightIndex{};
