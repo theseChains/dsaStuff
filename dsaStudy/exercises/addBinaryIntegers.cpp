@@ -22,9 +22,9 @@ void addBinaryIntegers(const std::array<int, 9>& firstNumber, const std::array<i
 			carriedForward = (firstNumber[i] + secondNumber[i] + carriedForward >= 2) ? 1 : 0;
 		}
 	}
-
+	// first digit of the result
 	if (carriedForward)
 		result[0] = 1;
 
-	printContainer(result);
+	printArray(result);
 }

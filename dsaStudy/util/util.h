@@ -1,14 +1,21 @@
 #ifndef UTIL_FUNCTIONS_H
 #define UTIL_FUNCTIONS_H
 
+#include <algorithm>
 #include <array>
 #include <chrono>
+#include <cstddef>
 #include <iostream>
+#include <iterator>
+#include <limits>
 #include <random>
+#include <vector>
 
 namespace util
 {
 	inline constexpr int arraySize{ 130 };
+
+	inline constexpr int squareMatrixSize{ 10 };
 
 	// findMaxSubarray.cpp
 	inline constexpr int firstItemIndex{ 0 };
@@ -16,8 +23,16 @@ namespace util
 	inline constexpr int subarraySumIndex{ 2 };
 }
 
-void printContainer(const std::array<int, util::arraySize>& container);
-int generateRandomNumber(int min = -10, int max = 10);
-void generateContainer(std::array<int, util::arraySize>& container);
+int generateRandomNumber(int min = 0, int max = 9);
+
+// arrays
+void printArray(const std::array<int, util::arraySize>& array);
+void generateArray(std::array<int, util::arraySize>& array);
+
+// matrices
+using square_matrix_type = std::array<std::array<int, util::squareMatrixSize>, util::squareMatrixSize>;
+
+void printMatrix(const square_matrix_type& matrix);
+void generateMatrix(square_matrix_type& matrix);
 
 #endif

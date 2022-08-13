@@ -1,4 +1,5 @@
 ﻿#include "exercises/exercises.h"
+#include "matrices/matrices.h"
 #include "searching/searching.h"
 #include "sorting/sorting.h"
 #include "util/util.h"
@@ -8,34 +9,28 @@ int main()
 {
     Timer timer{};
     std::array<int, util::arraySize> numbers{};
-    generateContainer(numbers);
-
+    generateArray(numbers);
     std::cout << "initial array:\n";
-    printContainer(numbers);
+    printArray(numbers);
     std::cout << '\n';
 
-    timer.reset();
-    std::array<int, 3> maxSubarrayInfo{ findMaxSubarray(numbers) };
-    std::cout << "O(nlgn) max subarray elapsed time (ms): " << timer.elapsed() << '\n';
+    square_matrix_type firstMatrix{};
+    square_matrix_type secondMatrix{};
+    generateMatrix(firstMatrix);
+    generateMatrix(secondMatrix);
+    
+    std::cout << "first matrix:\n";
+    printMatrix(firstMatrix);
+    std::cout << "second matrix:\n";
+    printMatrix(secondMatrix);
 
-    std::cout << "maximum subarray first index: " << maxSubarrayInfo[util::firstItemIndex]
-        << "\nmaximum subarray last index: " << maxSubarrayInfo[util::lastItemIndex]
-        << "\nthe subarray sum: " << maxSubarrayInfo[util::subarraySumIndex] << "\n\n";
-
-    timer.reset();
-    int slowSum{ slowMaxSubarraySum(numbers) };
-    std::cout << "O(n^2) max subarray elapsed time (ms): " << timer.elapsed() << '\n';
-    std::cout << "(slow algo) max subarray sum: " << slowSum << "\n\n";
-
-    timer.reset();
-    int fastSum{ fastMaxSubarraySum(numbers) };
-    std::cout << "O(n) max subarray elapsed time (ms): " << timer.elapsed() << '\n';
-    std::cout << "(fast algo) max subarray sum: " << fastSum << "\n\n";
-
+    std::cout << "matrices multiplied:\n";
+    square_matrix_type result{ squareMatrixMultiply(firstMatrix, secondMatrix) };
+    printMatrix(result);
 
     std::cout << "sorted array:\n";
     mergeSort(numbers);
-    printContainer(numbers);
+    printArray(numbers);
 
     std::cout << "number 7 is at index: " << binarySearch(numbers, 7) << '\n';
 
