@@ -8,25 +8,23 @@
 int main()
 {
     Timer timer{};
-    std::array<int, util::arraySize> numbers{};
-    generateArray(numbers);
+    std::array<int, util::arraySize> numbers{ generateArray() };
     std::cout << "initial array:\n";
     printArray(numbers);
     std::cout << '\n';
 
-    square_matrix_type firstMatrix{};
-    square_matrix_type secondMatrix{};
-    generateMatrix(firstMatrix);
-    generateMatrix(secondMatrix);
-    
+    square_matrix_type firstMatrix{ generateMatrix() };
+    square_matrix_type secondMatrix{ generateMatrix() };
     std::cout << "first matrix:\n";
     printMatrix(firstMatrix);
     std::cout << "second matrix:\n";
     printMatrix(secondMatrix);
+    std::cout << '\n';
 
     std::cout << "matrices multiplied:\n";
     square_matrix_type result{ squareMatrixMultiply(firstMatrix, secondMatrix) };
     printMatrix(result);
+    std::cout << '\n';
 
     std::cout << "sorted array:\n";
     mergeSort(numbers);
