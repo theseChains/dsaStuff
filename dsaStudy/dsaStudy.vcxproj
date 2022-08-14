@@ -136,6 +136,7 @@
     <ClCompile Include="exercises\fastMaxSubarray.cpp" />
     <ClCompile Include="exercises\slowMaxSubarray.cpp" />
     <ClCompile Include="matrices\squareMatrixMultiply.cpp" />
+    <ClCompile Include="matrices\strassenAlgorithm.cpp" />
     <ClCompile Include="searching\binarySearch.cpp" />
     <ClCompile Include="searching\findMaxSubarray.cpp" />
     <ClCompile Include="searching\linearSearch.cpp" />

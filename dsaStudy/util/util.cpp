@@ -45,7 +45,7 @@ void printMatrix(const square_matrix_type& matrix)
 
 square_matrix_type generateMatrix()
 {
-	square_matrix_type matrix{};
+	square_matrix_type matrix(util::squareMatrixSize, std::vector<int>(util::squareMatrixSize));
 
 	for (int i{ 0 }; i < util::squareMatrixSize; ++i)
 	{

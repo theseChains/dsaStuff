@@ -15,16 +15,20 @@ int main()
 
     square_matrix_type firstMatrix{ generateMatrix() };
     square_matrix_type secondMatrix{ generateMatrix() };
-    std::cout << "first matrix:\n";
-    printMatrix(firstMatrix);
-    std::cout << "second matrix:\n";
-    printMatrix(secondMatrix);
-    std::cout << '\n';
 
     std::cout << "matrices multiplied:\n";
-    square_matrix_type result{ squareMatrixMultiply(firstMatrix, secondMatrix) };
-    printMatrix(result);
+    timer.reset();
+    square_matrix_type resultNaive{ squareMatrixMultiply(firstMatrix, secondMatrix) };
+    unsigned long long naiveTime{ timer.elapsed() };
     std::cout << '\n';
+
+    timer.reset();
+    square_matrix_type resultStrassen{ strassenMultiplication(firstMatrix, secondMatrix) };
+    unsigned long long strassenTime{ timer.elapsed() };
+    std::cout << '\n';
+
+    std::cout << "time to compute naive algorithm (O(n^3)) in ms: " << naiveTime << "\nresult:\n";
+    std::cout << "time to compute naive algorithm (O(n^3)) in ms: " << strassenTime << "\nresult:\n";
 
     std::cout << "sorted array:\n";
     mergeSort(numbers);

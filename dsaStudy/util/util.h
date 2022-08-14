@@ -15,7 +15,7 @@ namespace util
 {
 	inline constexpr int arraySize{ 130 };
 
-	inline constexpr int squareMatrixSize{ 10 };
+	inline constexpr int squareMatrixSize{ 8 };
 
 	// findMaxSubarray.cpp
 	inline constexpr int firstItemIndex{ 0 };
@@ -31,7 +31,7 @@ void printArray(const std::array<int, util::arraySize>& array);
 std::array<int, util::arraySize> generateArray();
 
 // matrices
-using square_matrix_type = std::array<std::array<int, util::squareMatrixSize>, util::squareMatrixSize>;
+using square_matrix_type = std::vector<std::vector<int>>;
 
 void printMatrix(const square_matrix_type& matrix);
 square_matrix_type generateMatrix();
