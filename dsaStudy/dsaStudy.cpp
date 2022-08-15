@@ -13,28 +13,20 @@ int main()
     printArray(numbers);
     std::cout << '\n';
 
-    square_matrix_type firstMatrix{ generateMatrix() };
-    square_matrix_type secondMatrix{ generateMatrix() };
+    std::array<int, 10> digits{};
+    for (int i{ 0 }; i < 10000; ++i)
+    {
+        int number{ generateRandomNumber() };
+        ++digits[number];
+    }
 
-    std::cout << "matrices multiplied:\n";
-    timer.reset();
-    square_matrix_type resultNaive{ squareMatrixMultiply(firstMatrix, secondMatrix) };
-    unsigned long long naiveTime{ timer.elapsed() };
-    std::cout << '\n';
-
-    timer.reset();
-    square_matrix_type resultStrassen{ strassenMultiplication(firstMatrix, secondMatrix) };
-    unsigned long long strassenTime{ timer.elapsed() };
-    std::cout << '\n';
-
-    std::cout << "time to compute naive algorithm (O(n^3)) in ms: " << naiveTime << "\nresult:\n";
-    std::cout << "time to compute naive algorithm (O(n^3)) in ms: " << strassenTime << "\nresult:\n";
-
-    std::cout << "sorted array:\n";
-    mergeSort(numbers);
-    printArray(numbers);
-
-    std::cout << "number 7 is at index: " << binarySearch(numbers, 7) << '\n';
+    std::cout << "mersenne twister probabilities:\n";
+    std::array<double, 10> probabilities{};
+    for (int i{ 0 }; i < 10; ++i)
+    {
+        probabilities[i] = digits[i] / 10000.0;
+        std::cout << "number " << i << " percentage: " << probabilities[i] * 100 << "%\n";
+    }
 
     return 0;
 }
