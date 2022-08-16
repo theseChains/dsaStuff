@@ -13,7 +13,7 @@
 
 namespace util
 {
-	inline constexpr int arraySize{ 130 };
+	inline constexpr int arraySize{ 10 };
 
 	inline constexpr int squareMatrixSize{ 8 };
 
