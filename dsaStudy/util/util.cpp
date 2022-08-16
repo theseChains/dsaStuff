@@ -1,9 +1,7 @@
 #include "util.h"
 
-int generateRandomNumber(int min, int max)
+int random::getNumber(int min, int max)
 {
-	static std::mt19937 mt{ std::random_device{}() };
-
 	std::uniform_int_distribution range{ min, max };
 
 	return range(mt);
@@ -25,7 +23,7 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
-		array[i] = generateRandomNumber(minNumber, maxNumber);
+		array[i] = random::getNumber(minNumber, maxNumber);
 	}
 
 	return array;
@@ -51,7 +49,7 @@ square_matrix_type generateMatrix(int minNumber, int maxNumber)
 	{
 		for (int j{ 0 }; j < util::squareMatrixSize; ++j)
 		{
-			matrix[i][j] = generateRandomNumber(minNumber, maxNumber);
+			matrix[i][j] = random::getNumber(minNumber, maxNumber);
 		}
 	}
 

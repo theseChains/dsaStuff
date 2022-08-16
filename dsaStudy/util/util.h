@@ -24,7 +24,12 @@ namespace util
 	inline constexpr int subarraySumIndex{ 2 };
 }
 
-int generateRandomNumber(int min = 0, int max = 9);
+namespace random
+{
+	static std::mt19937 mt{ std::random_device{}() };
+
+	int getNumber(int min = 0, int max = 9);
+}
 
 // arrays
 void printArray(const std::array<int, util::arraySize>& array);

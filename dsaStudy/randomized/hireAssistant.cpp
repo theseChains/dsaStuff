@@ -23,7 +23,7 @@ void permuteBySorting(std::array<int, 10>& candidates)
 		// 0 to 10^3 (n^3)
 		// n^3 so that we get better chances of not having
 		// identical priorities
-		priorities[i] = generateRandomNumber(0, 1000);
+		priorities[i] = random::getNumber(0, 1000);
 	}
 
 	// sort candidates array with priorities as keys
@@ -49,7 +49,7 @@ void randomizeInPlace(std::array<int, 10>& candidates)
 	int size{ static_cast<int>(std::size(candidates)) };
 	for (int i{ 0 }; i < size; ++i)
 	{
-		int newIndex{ generateRandomNumber(i, size - 1) };
+		int newIndex{ random::getNumber(i, size - 1) };
 		std::swap(candidates[i], candidates[newIndex]);
 	}
 }
