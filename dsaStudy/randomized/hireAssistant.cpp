@@ -12,19 +12,29 @@ void hire([[maybe_unused]] int candidate)
 
 // randomly permuting arrays
 
+void randomizeInPlace(std::array<int, 10>& array)
+{
+	int size{ static_cast<int>(std::size(array)) };
+	for (int i{ 0 }; i < size; ++i)
+	{
+		int newIndex{ random::getNumber(i, size - 1) };
+		std::swap(array[i], array[newIndex]);
+	}
+}
+
 /* if our initial array is A{ 1, 2, 3, 4 } and we choose random priorities
  * P{ 36, 3, 62, 19 }, we would produce an array B{ 2, 4, 1, 3 }, since the second
  * priority is the smallest, followed by the fourth, then the first, and finally the third*/
 void permuteBySorting(std::array<int, 10>& candidates)
 {
 	std::array<int, 10> priorities{};
-	for (std::size_t i{ 0 }; i < std::size(priorities); ++i)
+	// now we make sure that all priorities are unique!
+	// (aka exercise 5.3-6)
+	for (int i{ 0 }; i < std::size(priorities); ++i)
 	{
-		// 0 to 10^3 (n^3)
-		// n^3 so that we get better chances of not having
-		// identical priorities
-		priorities[i] = random::getNumber(0, 1000);
+		priorities[i] = i;
 	}
+	randomizeInPlace(priorities);
 
 	// sort candidates array with priorities as keys
 	std::array<std::pair<int, int>, 10> candidatesAndKeys{};
@@ -41,16 +51,6 @@ void permuteBySorting(std::array<int, 10>& candidates)
 	for (std::size_t i{ 0 }; i < std::size(candidates); ++i)
 	{
 		candidates[i] = candidatesAndKeys[i].first;
-	}
-}
-
-void randomizeInPlace(std::array<int, 10>& candidates)
-{
-	int size{ static_cast<int>(std::size(candidates)) };
-	for (int i{ 0 }; i < size; ++i)
-	{
-		int newIndex{ random::getNumber(i, size - 1) };
-		std::swap(candidates[i], candidates[newIndex]);
 	}
 }
 
