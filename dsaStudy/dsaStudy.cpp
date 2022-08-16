@@ -11,9 +11,11 @@ int main()
     Timer timer{};
 
     std::array<int, util::arraySize> candidates{ generateArray(1, 8) };
+    std::cout << "initial array: ";
+    printArray(candidates);
     int hiredCandidate{ hireAssistant(candidates) };
     
-    std::cout << "candidates: ";
+    std::cout << "\ncandidates: ";
     printArray(candidates);
     std::cout << "\nhired candidate index: " << hiredCandidate << '\n';
 
