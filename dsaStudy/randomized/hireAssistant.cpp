@@ -13,7 +13,7 @@ void hire([[maybe_unused]] int candidate)
 // assume each candidate is represented by an integer from 0 to 9
 int hireAssistant(std::array<int, 10>& candidates)
 {
-	/* we first assume that the candidates are randomized
+	/* we make sure that the candidates are randomized
 	 * so that each new candidate has the same chance of 
 	 * being hired. this way the algorithm has an average 
 	 * total hiring cost of O(cln(n)), where c is the number
@@ -34,6 +34,12 @@ int hireAssistant(std::array<int, 10>& candidates)
 			bestValue = candidates[i];
 			// we go through the interview process regardless
 			// but we want to minimize hiring expenses
+			// the amount of calls of this function depends
+			// on how lucky we got with the permutation
+			// for example, if the array is sorted in a decreasing
+			// order, we only call this once, 10 times in case of 
+			// ascending order, but we have a random array, so the
+			// cost is random too.
 			hire(candidates[i]);
 		}
 	}
