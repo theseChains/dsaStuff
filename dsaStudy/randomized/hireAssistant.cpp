@@ -18,7 +18,7 @@ void hire([[maybe_unused]] int candidate)
 void permuteBySorting(std::array<int, 10>& candidates)
 {
 	std::array<int, 10> priorities{};
-	for (std::size_t i{ 0 }; i < 10; ++i)
+	for (std::size_t i{ 0 }; i < std::size(priorities); ++i)
 	{
 		// 0 to 10^3 (n^3)
 		// n^3 so that we get better chances of not having
@@ -26,12 +26,9 @@ void permuteBySorting(std::array<int, 10>& candidates)
 		priorities[i] = generateRandomNumber(0, 1000);
 	}
 
-	std::cout << "priorities array: ";
-	printArray(priorities);
-
 	// sort candidates array with priorities as keys
 	std::array<std::pair<int, int>, 10> candidatesAndKeys{};
-	for (int i{ 0 }; i < 10; ++i)
+	for (std::size_t i{ 0 }; i < std::size(candidatesAndKeys); ++i)
 	{
 		candidatesAndKeys[i] = std::make_pair(candidates[i], priorities[i]);
 	}
@@ -41,9 +38,19 @@ void permuteBySorting(std::array<int, 10>& candidates)
 			return (a.second < b.second); // sort by priority value
 		});
 
-	for (int i{ 0 }; i < 10; ++i)
+	for (std::size_t i{ 0 }; i < std::size(candidates); ++i)
 	{
 		candidates[i] = candidatesAndKeys[i].first;
+	}
+}
+
+void randomizeInPlace(std::array<int, 10>& candidates)
+{
+	int size{ static_cast<int>(std::size(candidates)) };
+	for (int i{ 0 }; i < size; ++i)
+	{
+		int newIndex{ generateRandomNumber(i, size - 1) };
+		std::swap(candidates[i], candidates[newIndex]);
 	}
 }
 
@@ -55,7 +62,7 @@ int hireAssistant(std::array<int, 10>& candidates)
 	 * being hired. this way the algorithm has an average 
 	 * total hiring cost of O(cln(n)), where c is the number
 	 * of hiring function calls. worst-case: O(cn) */
-	permuteBySorting(candidates);
+	randomizeInPlace(candidates);
 
 	int bestValue{ -1 };
 	int best{ -1 }; // candidate -1 is a least-qualified dummy candidate
