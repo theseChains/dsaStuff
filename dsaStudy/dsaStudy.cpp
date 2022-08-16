@@ -10,7 +10,7 @@ int main()
 {
     Timer timer{};
 
-    std::array<int, 10> candidates{ generateArray() };
+    std::array<int, util::arraySize> candidates{ generateArray(1, 8) };
     int hiredCandidate{ hireAssistant(candidates) };
     
     std::cout << "candidates: ";

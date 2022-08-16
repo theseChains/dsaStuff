@@ -28,12 +28,12 @@ int generateRandomNumber(int min = 0, int max = 9);
 // arrays
 void printArray(const std::array<int, util::arraySize>& array);
 
-std::array<int, util::arraySize> generateArray();
+std::array<int, util::arraySize> generateArray(int minNumber = 0, int maxNumber = 9);
 
 // matrices
 using square_matrix_type = std::vector<std::vector<int>>;
 
 void printMatrix(const square_matrix_type& matrix);
-square_matrix_type generateMatrix();
+square_matrix_type generateMatrix(int minNumber = 0, int maxNumber = 9);
 
 #endif

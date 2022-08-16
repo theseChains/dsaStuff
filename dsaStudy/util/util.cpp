@@ -19,13 +19,13 @@ void printArray(const std::array<int, util::arraySize>& array)
 	std::cout << '\n';
 }
 
-std::array<int, util::arraySize> generateArray()
+std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 {
 	std::array<int, util::arraySize> array{};
 
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
-		array[i] = generateRandomNumber();
+		array[i] = generateRandomNumber(minNumber, maxNumber);
 	}
 
 	return array;
@@ -43,7 +43,7 @@ void printMatrix(const square_matrix_type& matrix)
 	}
 }
 
-square_matrix_type generateMatrix()
+square_matrix_type generateMatrix(int minNumber, int maxNumber)
 {
 	square_matrix_type matrix(util::squareMatrixSize, std::vector<int>(util::squareMatrixSize));
 
@@ -51,7 +51,7 @@ square_matrix_type generateMatrix()
 	{
 		for (int j{ 0 }; j < util::squareMatrixSize; ++j)
 		{
-			matrix[i][j] = generateRandomNumber();
+			matrix[i][j] = generateRandomNumber(minNumber, maxNumber);
 		}
 	}
 
