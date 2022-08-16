@@ -10,14 +10,14 @@ int main()
 {
     Timer timer{};
 
-    std::array<int, util::arraySize> candidates{ generateArray() };
-    std::cout << "initial array: ";
-    printArray(candidates);
-    int hiredCandidate{ hireAssistant(candidates) };
-    
-    std::cout << "\ncandidates: ";
-    printArray(candidates);
-    std::cout << "\nhired candidate index: " << hiredCandidate << '\n';
+    std::set<int> randomSample{ getRandomSample(10, 6) };
+
+    for (auto element : randomSample)
+    {
+        std::cout << element << ' ';
+    }
+
+    std::cout << '\n';
 
     return 0;
 }

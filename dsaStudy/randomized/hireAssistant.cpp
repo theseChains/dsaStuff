@@ -75,14 +75,14 @@ int hireAssistant(std::array<int, 10>& candidates)
 		{
 			best = i;
 			bestValue = candidates[i];
-			// we go through the interview process regardless
-			// but we want to minimize hiring expenses
-			// the amount of calls of this function depends
-			// on how lucky we got with the permutation
-			// for example, if the array is sorted in a decreasing
-			// order, we only call this once, 10 times in case of 
-			// ascending order, but we have a random array, so the
-			// cost is random too.
+			/* we go through the interview process regardless
+			 * but we want to minimize hiring expenses
+			 * the amount of calls of this function depends
+			 * on how lucky we got with the permutation
+			 * for example, if the array is sorted in a decreasing
+			 * order, we only call this once, 10 times in case of 
+			 * ascending order, but we have a random array, so the
+			 * cost is random too. */
 			hire(candidates[i]);
 		}
 	}
