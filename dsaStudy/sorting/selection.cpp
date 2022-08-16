@@ -4,11 +4,11 @@
 
 void selectionSortIncr(std::array<int, util::arraySize>& numbers)
 {
-	int size{ static_cast<int>(std::size(numbers)) };
+	auto size{ std::ssize(numbers) };
 	for (int i{ 0 }; i < size - 1; ++i)
 	{
 		int smallestNumber{ std::numeric_limits<int>::max() };
-		int smallestNumberIndex{};
+		int smallestNumberIndex{ 0 };
 		for (int j{ i + 1 }; j < size; ++j)
 		{
 			if (numbers[j] < smallestNumber)
@@ -24,7 +24,7 @@ void selectionSortIncr(std::array<int, util::arraySize>& numbers)
 
 void selectionSortDecr(std::array<int, util::arraySize>& numbers)
 {
-	int size{ static_cast<int>(std::size(numbers)) };
+	auto size{ std::ssize(numbers) };
 	for (int i{ 0 }; i < size - 1; ++i)
 	{
 		int biggestNumber{ std::numeric_limits<int>::min() };

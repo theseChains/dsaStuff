@@ -1,4 +1,4 @@
-#include "searching.h"
+#include "exercises.h"
 
 std::array<int, 3> findMaxCrossingSubarray(const std::array<int, util::arraySize>& numbers, int low, int middle, int high);
 

@@ -39,7 +39,7 @@
     <ClCompile Include="searching\binarySearch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="searching\findMaxSubarray.cpp">
+    <ClCompile Include="exercises\findMaxSubarray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="exercises\slowMaxSubarray.cpp">

@@ -139,7 +139,7 @@
     <ClCompile Include="matrices\strassenAlgorithm.cpp" />
     <ClCompile Include="randomized\hireAssistant.cpp" />
     <ClCompile Include="searching\binarySearch.cpp" />
-    <ClCompile Include="searching\findMaxSubarray.cpp" />
+    <ClCompile Include="exercises\findMaxSubarray.cpp" />
     <ClCompile Include="searching\linearSearch.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />

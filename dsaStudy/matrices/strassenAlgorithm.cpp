@@ -35,7 +35,7 @@ square_matrix_type subtract(const square_matrix_type& firstMatrix, const square_
 
 square_matrix_type strassenMultiplication(const square_matrix_type& firstMatrix, const square_matrix_type& secondMatrix)
 {
-	std::size_t size{ firstMatrix.size() }; // size of a column
+	std::size_t size{ std::size(firstMatrix) }; // size of a column
 
 	if (size == 1)
 	{

@@ -2,7 +2,7 @@
 
 square_matrix_type squareMatrixMultiply(const square_matrix_type& firstMatrix, const square_matrix_type& secondMatrix)
 {
-	std::size_t size{ firstMatrix.size() };
+	std::size_t size{ std::size(firstMatrix) };
 	square_matrix_type newMatrix(util::squareMatrixSize, std::vector<int>(util::squareMatrixSize));
 
 	for (std::size_t i{ 0 }; i < size; ++i)

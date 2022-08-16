@@ -66,7 +66,7 @@ int hireAssistant(std::array<int, 10>& candidates)
 
 	int bestValue{ -1 };
 	int best{ -1 }; // candidate -1 is a least-qualified dummy candidate
-	for (int i{ 0 }; i < static_cast<int>(candidates.size()); ++i)
+	for (int i{ 0 }; i < std::size(candidates); ++i)
 	{
 		interview(candidates[i]);
 		// candidate i has a probability of 1/i of being better qualified

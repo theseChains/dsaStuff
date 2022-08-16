@@ -12,11 +12,11 @@ void insertionSortIncr(std::array<int, util::arraySize>& numbers)
 		int i{ j - 1 };
 		while (i >= 0 && numbers[i] > key)
 		{
-			numbers[static_cast<std::size_t>(i) + 1] = numbers[i];
+			numbers[static_cast<std::size_t>(i + 1)] = numbers[i];
 			--i;
 		}
 		// insert numbers[j] into the sorted sequence numbers[0..j - 1]
-		numbers[static_cast<std::size_t>(i) + 1] = key;
+		numbers[static_cast<std::size_t>(i + 1)] = key;
 	}
 }
 
@@ -31,10 +31,10 @@ void insertionSortDecr(std::array<int, util::arraySize>& numbers)
 		int i{ j - 1 };
 		while (i >= 0 && numbers[i] < key)
 		{
-			numbers[static_cast<std::size_t>(i) + 1] = numbers[i];
+			numbers[static_cast<std::size_t>(i + 1)] = numbers[i];
 			--i;
 		}
 		// insert numbers[j] into the sorted sequence numbers[0..j - 1]
-		numbers[static_cast<std::size_t>(i) + 1] = key;
+		numbers[static_cast<std::size_t>(i + 1)] = key;
 	}
 }

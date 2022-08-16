@@ -8,7 +8,8 @@ void addBinaryIntegers(const std::array<int, 9>& firstNumber, const std::array<i
 
 	bool firstIteration{ true };
 	int carriedForward{ 0 };
-	for (int i{ 8 }; i >= 0; --i)
+	int startIndex{ static_cast<int>(std::size(firstNumber)) - 1 }; // 8
+	for (int i{ startIndex }; i >= 0; --i)
 	{
 		if (firstIteration)
 		{
