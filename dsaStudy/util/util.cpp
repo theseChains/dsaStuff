@@ -2,7 +2,7 @@
 
 int generateRandomNumber(int min, int max)
 {
-	static std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+	static std::mt19937 mt{ std::random_device{}() };
 
 	std::uniform_int_distribution range{ min, max };
 

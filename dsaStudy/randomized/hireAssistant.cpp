@@ -18,7 +18,7 @@ int hireAssistant(std::array<int, 10>& candidates)
 	 * being hired. this way the algorithm has an average 
 	 * total hiring cost of O(cln(n)), where c is the number
 	 * of hiring function calls. worst-case: O(cn) */
-	std::mt19937 mt{ std::random_device{}() };
+	static std::mt19937 mt{ std::random_device{}() };
 	std::shuffle(candidates.begin(), candidates.end(), mt);
 
 	int bestValue{ -1 };
