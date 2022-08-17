@@ -1,6 +1,18 @@
 #include "searching.h"
 
-int scrambleSearch(const std::array<int, util::arraySize>& numbers, int value)
+// works by randomly permuting the array first and running a deterministic search algorithm
+int scrambleSearch(std::array<int, util::arraySize>& numbers, int value)
 {
+	std::shuffle(std::begin(numbers), std::end(numbers), random::mt);
+
+	for (int index{ 0 }; auto element : numbers)
+	{
+		if (element == value)
+		{
+			return index;
+		}
+		++index;
+	}
+
 	return -1;
 }

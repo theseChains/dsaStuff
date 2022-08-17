@@ -27,7 +27,7 @@ namespace util
 
 namespace random
 {
-	static std::mt19937 mt{ std::random_device{}() };
+	inline std::mt19937 mt{ std::random_device{}() };
 
 	int getNumber(int min = 0, int max = 9);
 }

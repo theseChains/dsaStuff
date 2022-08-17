@@ -11,6 +11,6 @@ int binarySearch(const std::array<int, util::arraySize>& sortedNumbers, int valu
 
 int deterministicSearch(const std::array<int, util::arraySize>& numbers, int value);
 int randomSearch(const std::array<int, util::arraySize>& numbers, int value);
-int scrambleSearch(const std::array<int, util::arraySize>& numbers, int value);
+int scrambleSearch(std::array<int, util::arraySize>& numbers, int value);
 
 #endif
