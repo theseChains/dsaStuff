@@ -4,7 +4,7 @@
 
 int slowMaxSubarraySum(const std::array<int, util::arraySize>& numbers)
 {
-	int maxSum{ -1000 };
+	int maxSum{ std::numeric_limits<int>::min() };
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
 		int sum{ 0 };

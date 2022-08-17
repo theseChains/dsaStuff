@@ -9,7 +9,7 @@ int random::getNumber(int min, int max)
 
 void printArray(const std::array<int, util::arraySize>& array)
 {
-	for (auto element : array)
+	for (const auto element : array)
 	{
 		std::cout << element << ' ';
 	}
@@ -21,9 +21,9 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 {
 	std::array<int, util::arraySize> array{};
 
-	for (int i{ 0 }; i < util::arraySize; ++i)
+	for (auto& element : array)
 	{
-		array[i] = random::getNumber(minNumber, maxNumber);
+		element = random::getNumber(minNumber, maxNumber);
 	}
 
 	return array;
@@ -31,11 +31,11 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 
 void printMatrix(const square_matrix_type& matrix)
 {
-	for (int i{ 0 }; i < util::squareMatrixSize; ++i)
+	for (const auto& row : matrix)
 	{
-		for (int j{ 0 }; j < util::squareMatrixSize; ++j)
+		for (const auto element : row)
 		{
-			std::cout << matrix[i][j] << ' ';
+			std::cout << element << ' ';
 		}
 		std::cout << '\n';
 	}
@@ -45,11 +45,11 @@ square_matrix_type generateMatrix(int minNumber, int maxNumber)
 {
 	square_matrix_type matrix(util::squareMatrixSize, std::vector<int>(util::squareMatrixSize));
 
-	for (int i{ 0 }; i < util::squareMatrixSize; ++i)
+	for (auto& row : matrix)
 	{
-		for (int j{ 0 }; j < util::squareMatrixSize; ++j)
+		for (auto& element : row)
 		{
-			matrix[i][j] = random::getNumber(minNumber, maxNumber);
+			element = random::getNumber(minNumber, maxNumber);
 		}
 	}
 
