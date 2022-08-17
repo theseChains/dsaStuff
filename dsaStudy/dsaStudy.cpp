@@ -10,9 +10,12 @@ int main()
 {
     Timer timer{};
 
-    std::array<int, util::arraySize> numbers{ generateArray(-5, 5) };
-    std::cout << "initial array: ";
-    printArray(numbers);
+    std::set<int> randomSample{ getRandomSample(10, 6) };
+
+    for (const auto element : randomSample)
+    {
+        std::cout << element << ' ';
+    }
 
 
     return 0;

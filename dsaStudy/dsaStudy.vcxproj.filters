@@ -63,6 +63,9 @@
     <ClCompile Include="randomized\randomSetSample.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="randomized\onlineHireAssistant.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorting\sorting.h">

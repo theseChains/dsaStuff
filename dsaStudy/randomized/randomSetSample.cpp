@@ -16,6 +16,9 @@ std::set<int> getRandomSample(int setSize, int sampleSize)
 		int number{ random::getNumber(1, setSize) };
 		if (sample.contains(number))
 		{
+			// this will never merge the same value since setSize 
+			// will change in the previous recursion call
+			// this way the subset won't have repeating numbers
 			sample.merge(std::set<int>{ setSize }); // merge with set containing one number - the set size
 		}
 		else
