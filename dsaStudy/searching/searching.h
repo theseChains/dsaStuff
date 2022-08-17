@@ -3,7 +3,14 @@
 
 #include "../util/util.h"
 
-int linearSearch(const std::array<int, util::arraySize>& numbers, int value);
+// searching a sorted array
+
 int binarySearch(const std::array<int, util::arraySize>& sortedNumbers, int value);
+
+// searching an unsorted array
+
+int deterministicSearch(const std::array<int, util::arraySize>& numbers, int value);
+int randomSearch(const std::array<int, util::arraySize>& numbers, int value);
+int scrambleSearch(const std::array<int, util::arraySize>& numbers, int value);
 
 #endif

@@ -24,7 +24,7 @@
     <ClCompile Include="util\util.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="searching\linearSearch.cpp">
+    <ClCompile Include="searching\deterministicSearch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="exercises\addBinaryIntegers.cpp">
@@ -64,6 +64,12 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="randomized\onlineHireAssistant.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="searching\randomSearch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="searching\scrambleSearch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

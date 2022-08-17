@@ -10,13 +10,11 @@ int main()
 {
     Timer timer{};
 
-    std::set<int> randomSample{ getRandomSample(10, 6) };
+    std::array<int, util::arraySize> numbers{ generateArray() };
+    std::cout << "initial array: ";
+    printArray(numbers);
 
-    for (const auto element : randomSample)
-    {
-        std::cout << element << ' ';
-    }
-
+    std::cout << "number 7 is at index: " << randomSearch(numbers, 7) << '\n';
 
     return 0;
 }

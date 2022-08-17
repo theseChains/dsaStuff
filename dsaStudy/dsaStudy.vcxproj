@@ -142,7 +142,9 @@
     <ClCompile Include="randomized\randomSetSample.cpp" />
     <ClCompile Include="searching\binarySearch.cpp" />
     <ClCompile Include="exercises\findMaxSubarray.cpp" />
-    <ClCompile Include="searching\linearSearch.cpp" />
+    <ClCompile Include="searching\deterministicSearch.cpp" />
+    <ClCompile Include="searching\randomSearch.cpp" />
+    <ClCompile Include="searching\scrambleSearch.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />
     <ClCompile Include="sorting\selection.cpp" />
