@@ -14,8 +14,9 @@ int main()
     std::cout << "initial array: ";
     printArray(numbers);
 
-    std::cout << "number 7 is at index: " << randomSearch(numbers, 7) << '\n';
-    std::cout << "number 5 is at index: " << scrambleSearch(numbers, 5) << '\n';
+    heapSort(numbers);
+    std::cout << "sorted array: ";
+    printArray(numbers);
 
     return 0;
 }

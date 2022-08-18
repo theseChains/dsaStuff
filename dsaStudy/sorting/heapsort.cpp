@@ -31,13 +31,12 @@ int getRightChildIndex(int parentIndex)
 // for every node i other than the root, array[parent(i)] >= array[i]
 // at each step, the largest of the elements array[index], array[right], 
 // and array[left] is determined and stored in indexOfLargest
-void makeMaxHeap(std::array<int, util::arraySize>& numbers, int index)
+void makeMaxHeap(std::array<int, util::arraySize>& numbers, int index, int size)
 {
 	int leftChildIndex{ getLeftChildIndex(index) };
 	int rightChildIndex{ getRightChildIndex(index) };
-	int size{ static_cast<int>(std::size(numbers)) };
 
-	int indexOfLargest{ -1 };
+	int indexOfLargest{ index };
 	if (leftChildIndex < size && numbers[leftChildIndex] > numbers[index])
 	{
 		indexOfLargest = leftChildIndex;
@@ -55,17 +54,16 @@ void makeMaxHeap(std::array<int, util::arraySize>& numbers, int index)
 	if (indexOfLargest != index)
 	{
 		std::swap(numbers[index], numbers[indexOfLargest]);
-		makeMaxHeap(numbers, indexOfLargest);
+		makeMaxHeap(numbers, indexOfLargest, size);
 	}
 }
 
-void makeMinHeap(std::array<int, util::arraySize>& numbers, int index)
+void makeMinHeap(std::array<int, util::arraySize>& numbers, int index, int size)
 {
 	int leftChildIndex{ getLeftChildIndex(index) };
 	int rightChildIndex{ getRightChildIndex(index) };
-	int size{ static_cast<int>(std::size(numbers)) };
 
-	int indexOfSmallest{ -1 };
+	int indexOfSmallest{ index };
 	if (leftChildIndex < size && numbers[leftChildIndex] < numbers[index])
 	{
 		indexOfSmallest = leftChildIndex;
@@ -83,20 +81,18 @@ void makeMinHeap(std::array<int, util::arraySize>& numbers, int index)
 	if (indexOfSmallest != index)
 	{
 		std::swap(numbers[index], numbers[indexOfSmallest]);
-		makeMaxHeap(numbers, indexOfSmallest);
+		makeMaxHeap(numbers, indexOfSmallest, size);
 	}
 }
 
 // a more efficient version
-void iterativeMakeMaxHeap(std::array<int, util::arraySize>& numbers, int index)
+void iterativeMakeMaxHeap(std::array<int, util::arraySize>& numbers, int index, int size)
 {
-	int size{ static_cast<int>(std::size(numbers)) };
-
-	int indexOfLargest{ -1 };
 	while (index < size)
 	{
 		int rightChildIndex{ getRightChildIndex(index) };
 		int leftChildIndex{ getLeftChildIndex(index) };
+		int indexOfLargest{ index };
 
 		if (rightChildIndex < size && numbers[rightChildIndex] > numbers[index])
 		{
@@ -123,8 +119,22 @@ void buildMaxHeap(std::array<int, util::arraySize>& numbers)
 {
 	int size{ static_cast<int>(std::size(numbers)) };
 
-	for (int i{ size / 2 }; i >= 0; --i)
+	// with size / 2 we can still access every node of the heap
+	// and for every node of the heap we call the make max heap function
+	for (int i{ size / 2 - 1 }; i >= 0; --i)
 	{
-		iterativeMakeMaxHeap(numbers, i);
+		makeMaxHeap(numbers, i, size);
+	}
+}
+
+void heapSort(std::array<int, util::arraySize>& numbers)
+{
+	buildMaxHeap(numbers);
+
+	int size{ static_cast<int>(std::size(numbers)) };
+	for (int i{ size - 1 }; i > 0; --i)
+	{
+		std::swap(numbers[0], numbers[i]);
+		makeMaxHeap(numbers, 0, i);
 	}
 }
