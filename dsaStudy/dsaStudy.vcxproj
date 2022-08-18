@@ -145,6 +145,7 @@
     <ClCompile Include="searching\deterministicSearch.cpp" />
     <ClCompile Include="searching\randomSearch.cpp" />
     <ClCompile Include="searching\scrambleSearch.cpp" />
+    <ClCompile Include="sorting\heapsort.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />
     <ClCompile Include="sorting\selection.cpp" />
