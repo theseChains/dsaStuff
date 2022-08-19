@@ -12,17 +12,17 @@
 //		    /  \   /
 //		   2   4  1
 
-int getParentIndex(int heapSize)
+int getParentIdx(int heapSize)
 {
 	return heapSize / 2;
 }
 
-int getLeftChildIndex(int parentIndex)
+int getLeftChildIdx(int parentIndex)
 {
 	return parentIndex * 2;
 }
 
-int getRightChildIndex(int parentIndex)
+int getRightChildIdx(int parentIndex)
 {
 	return parentIndex * 2 + 1;
 }
@@ -31,10 +31,10 @@ int getRightChildIndex(int parentIndex)
 // for every node i other than the root, array[parent(i)] >= array[i]
 // at each step, the largest of the elements array[index], array[right], 
 // and array[left] is determined and stored in indexOfLargest
-void makeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size)
+void maxHeapify(std::array<int, util::arraySize>& heap, int index, int size)
 {
-	int leftChildIndex{ getLeftChildIndex(index) };
-	int rightChildIndex{ getRightChildIndex(index) };
+	int leftChildIndex{ getLeftChildIdx(index) };
+	int rightChildIndex{ getRightChildIdx(index) };
 
 	int indexOfLargest{ index };
 	if (leftChildIndex < size && heap[leftChildIndex] > heap[index])
@@ -54,14 +54,14 @@ void makeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size)
 	if (indexOfLargest != index)
 	{
 		std::swap(heap[index], heap[indexOfLargest]);
-		makeMaxHeap(heap, indexOfLargest, size);
+		maxHeapify(heap, indexOfLargest, size);
 	}
 }
 
-void makeMinHeap(std::array<int, util::arraySize>& heap, int index, int size)
+void minHeapify(std::array<int, util::arraySize>& heap, int index, int size)
 {
-	int leftChildIndex{ getLeftChildIndex(index) };
-	int rightChildIndex{ getRightChildIndex(index) };
+	int leftChildIndex{ getLeftChildIdx(index) };
+	int rightChildIndex{ getRightChildIdx(index) };
 
 	int indexOfSmallest{ index };
 	if (leftChildIndex < size && heap[leftChildIndex] < heap[index])
@@ -81,25 +81,29 @@ void makeMinHeap(std::array<int, util::arraySize>& heap, int index, int size)
 	if (indexOfSmallest != index)
 	{
 		std::swap(heap[index], heap[indexOfSmallest]);
-		makeMaxHeap(heap, indexOfSmallest, size);
+		minHeapify(heap, indexOfSmallest, size);
 	}
 }
 
 // a more efficient version
-void iterativeMakeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size)
+void iterativeMaxHeapify(std::array<int, util::arraySize>& heap, int index, int size)
 {
 	while (index < size)
 	{
-		int rightChildIndex{ getRightChildIndex(index) };
-		int leftChildIndex{ getLeftChildIndex(index) };
+		int rightChildIndex{ getRightChildIdx(index) };
+		int leftChildIndex{ getLeftChildIdx(index) };
 		int indexOfLargest{ index };
 
 		if (rightChildIndex < size && heap[rightChildIndex] > heap[index])
 		{
 			indexOfLargest = rightChildIndex;
 		}
+		else
+		{
+			indexOfLargest = index;
+		}
 
-		if (leftChildIndex < size && heap[leftChildIndex] > heap[index])
+		if (leftChildIndex < size && heap[leftChildIndex] > heap[indexOfLargest])
 		{
 			indexOfLargest = leftChildIndex;
 		}
@@ -115,7 +119,7 @@ void iterativeMakeMaxHeap(std::array<int, util::arraySize>& heap, int index, int
 	}
 }
 
-void buildMaxHeap(std::array<int, util::arraySize>& heap)
+void buildMaximumHeap(std::array<int, util::arraySize>& heap)
 {
 	int size{ static_cast<int>(std::size(heap)) };
 
@@ -123,6 +127,6 @@ void buildMaxHeap(std::array<int, util::arraySize>& heap)
 	// and for every node of the heap we call the make max heap function
 	for (int i{ size / 2 - 1 }; i >= 0; --i)
 	{
-		makeMaxHeap(heap, i, size);
+		maxHeapify(heap, i, size);
 	}
 }

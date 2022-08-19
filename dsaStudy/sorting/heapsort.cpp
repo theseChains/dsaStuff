@@ -19,12 +19,12 @@ int getParentIndex(int heapSize)
 
 int getLeftChildIndex(int parentIndex)
 {
-	return parentIndex * 2;
+	return parentIndex * 2 + 1;
 }
 
 int getRightChildIndex(int parentIndex)
 {
-	return parentIndex * 2 + 1;
+	return parentIndex * 2 + 2;
 }
 
 // function to maintain max-heap property, i. e.:
@@ -86,27 +86,33 @@ void makeMinHeap(std::array<int, util::arraySize>& numbers, int index, int size)
 }
 
 // a more efficient version
-void iterativeMakeMaxHeap(std::array<int, util::arraySize>& numbers, int index, int size)
+void iterativeMakeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size)
 {
+	int indexOfLargest{};
 	while (index < size)
 	{
 		int rightChildIndex{ getRightChildIndex(index) };
 		int leftChildIndex{ getLeftChildIndex(index) };
-		int indexOfLargest{ index };
+		indexOfLargest = index;
 
-		if (rightChildIndex < size && numbers[rightChildIndex] > numbers[index])
+		if (rightChildIndex < size && heap[rightChildIndex] > heap[index])
 		{
 			indexOfLargest = rightChildIndex;
 		}
+		else
+		{
+			indexOfLargest = index;
+		}
 
-		if (leftChildIndex < size && numbers[leftChildIndex] > numbers[index])
+		if (leftChildIndex < size && heap[leftChildIndex] > heap[indexOfLargest])
 		{
 			indexOfLargest = leftChildIndex;
 		}
 
 		if (indexOfLargest != index)
 		{
-			std::swap(numbers[index], numbers[indexOfLargest]);
+			std::swap(heap[index], heap[indexOfLargest]);
+			index = indexOfLargest;
 		}
 		else
 		{
@@ -140,6 +146,6 @@ void heapSort(std::array<int, util::arraySize>& numbers)
 		// preserve max-heap property for the array
 		// size decreases since we are putting the biggest element
 		// at the last index - we don't care about it anymore
-		makeMaxHeap(numbers, 0, i);
+		iterativeMakeMaxHeap(numbers, 0, i);
 	}
 }

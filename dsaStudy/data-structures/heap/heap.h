@@ -3,9 +3,9 @@
 
 #include "../../util/util.h"
 
-void makeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size);
-void makeMinHeap(std::array<int, util::arraySize>& heap, int index, int size);
-void iterativeMakeMaxHeap(std::array<int, util::arraySize>& heap, int index, int size);
-void buildMaxHeap(std::array<int, util::arraySize>& heap);
+void maxHeapify(std::array<int, util::arraySize>& heap, int index, int size);
+void minHeapify(std::array<int, util::arraySize>& heap, int index, int size);
+void iterativeMaxHeapify(std::array<int, util::arraySize>& heap, int index, int size);
+void buildMaximumHeap(std::array<int, util::arraySize>& heap);
 
 #endif
