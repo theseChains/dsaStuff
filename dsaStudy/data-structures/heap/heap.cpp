@@ -19,12 +19,12 @@ int getParentIdx(int heapSize)
 
 int getLeftChildIdx(int parentIndex)
 {
-	return parentIndex * 2;
+	return parentIndex * 2 + 1;
 }
 
 int getRightChildIdx(int parentIndex)
 {
-	return parentIndex * 2 + 1;
+	return parentIndex * 2 + 2;
 }
 
 // function to maintain max-heap property, i. e.:
