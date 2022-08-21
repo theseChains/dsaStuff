@@ -103,11 +103,13 @@ void increaseKey(std::vector<int>& prQueue, int index, int key)
 	prQueue[index] = key;
 	// travel to the root of the heap to find a new place for this key
 	// index / 2 - parent node
-	while (index > 0 && prQueue[index / 2] < prQueue[index])
+	while (index > 0 && prQueue[index / 2] < key)
 	{
-		std::swap(prQueue[index], prQueue[index / 2]);
+		// much like inner loop of insertion sort
+		prQueue[index] = prQueue[index / 2];
 		index /= 2; // set parent index
 	}
+	prQueue[index] = key;
 }
 
 void maxPrQueueInsert(std::vector<int>& prQueue, int key)
