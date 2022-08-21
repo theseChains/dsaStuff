@@ -31,5 +31,11 @@ int main()
     printVector(maxPrQueue);
     std::cout << '\n';
 
+    std::cout << "deleting element with index 1...\n";
+    maxPrQueueDelete(maxPrQueue, 1);
+    std::cout << "new max pr. queue:\n";
+    printVector(maxPrQueue);
+    std::cout << '\n';
+
     return 0;
 }

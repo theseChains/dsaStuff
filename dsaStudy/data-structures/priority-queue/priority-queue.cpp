@@ -121,6 +121,14 @@ void maxPrQueueInsert(std::vector<int>& prQueue, int key)
 	increaseKey(prQueue, newSize - 1, key);
 }
 
+void maxPrQueueDelete(std::vector<int>& prQueue, int index)
+{
+	std::size_t size{ std::size(prQueue) };
+	prQueue[index] = prQueue[size - 1];
+	prQueue.resize(size - 1);
+	maxHeapifyForQueue(prQueue, index, size - 1);
+}
+
 // min-priority queue
 
 int minumum(const std::vector<int>& prQueue)
