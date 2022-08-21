@@ -8,8 +8,9 @@ int main()
 
     std::vector<int> dAryHeap{ 9, 7, 8, 6, 6, 5, 2, 3, 4 };
 
-    std::cout << "max element extracted: " << extractMax(dAryHeap, 3) << '\n';
-    std::cout << "d-ary heap now:\n";
+    std::cout << "inserting number 10...\n";
+    dAryHeapInsert(dAryHeap, 10, 3);
+    std::cout << "the d-ary heap now looks like:\n";
     printVector(dAryHeap);
 
     return 0;

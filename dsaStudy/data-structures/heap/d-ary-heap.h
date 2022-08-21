@@ -7,6 +7,9 @@
 
 int getChildIndex(int parentIndex, int child, int numberOfChildren);
 int getParentIndex(int index, int numberOfChildren);
-int extractMax(std::vector<int>& dAryHeap, int numberOfChildren);
+void dAryMaxHeapify(std::vector<int>& dAryHeap, int numberOfChildren, std::size_t size, int index);
+int dAryHeapExtractMax(std::vector<int>& dAryHeap, int numberOfChildren);
+void dAryHeapIncreaseKey(std::vector<int>& dAryHeap, int key, std::size_t index, int numberOfChildren);
+void dAryHeapInsert(std::vector<int>& dAryHeap, int key, int numberOfChildren);
 
 #endif

@@ -12,17 +12,12 @@ int getParentIndex(int index, int numberOfChildren)
 
 void dAryMaxHeapify(std::vector<int>& dAryHeap, int numberOfChildren, std::size_t size, int index)
 {
-	std::vector<int> childNodeIndices(numberOfChildren);
 	int indexOfLargest{ index };
 
 	for (int i{ 0 }; i < numberOfChildren; ++i)
 	{
 		// get ith child
-		childNodeIndices[i] = getChildIndex(index, i, numberOfChildren);
-	}
-
-	for (const auto childIndex : childNodeIndices)
-	{
+		int childIndex{ getChildIndex(index, i, numberOfChildren) };
 		if (childIndex < size && dAryHeap[childIndex] > dAryHeap[indexOfLargest])
 		{
 			indexOfLargest = childIndex;
@@ -36,7 +31,7 @@ void dAryMaxHeapify(std::vector<int>& dAryHeap, int numberOfChildren, std::size_
 	}
 }
 
-int extractMax(std::vector<int>& dAryHeap, int numberOfChildren)
+int dAryHeapExtractMax(std::vector<int>& dAryHeap, int numberOfChildren)
 {
 	std::size_t size{ std::size(dAryHeap) };
 
@@ -51,4 +46,28 @@ int extractMax(std::vector<int>& dAryHeap, int numberOfChildren)
 	dAryMaxHeapify(dAryHeap, numberOfChildren, size - 1, 0);
 
 	return maxElement;
+}
+
+void dAryHeapIncreaseKey(std::vector<int>& dAryHeap, int key, int index, int numberOfChildren)
+{
+	if (dAryHeap[index] > key)
+	{
+		std::cerr << "new key is smaller than the current key\n";
+	}
+
+	dAryHeap[index] = key;
+	while (index > 0 && dAryHeap[(index - 1) / numberOfChildren] < dAryHeap[index])
+	{
+		std::swap(dAryHeap[index], dAryHeap[(index - 1) / numberOfChildren]);
+		index = getParentIndex(index, numberOfChildren);
+	}
+}
+
+void dAryHeapInsert(std::vector<int>& dAryHeap, int key, int numberOfChildren)
+{
+	dAryHeap.resize(std::size(dAryHeap) + 1);
+	// yes, i know im inconsistent with these std::size() types, whatever, too lazy to fix
+	int lastIndex{ static_cast<int>(std::size(dAryHeap) - 1) };
+	dAryHeap[lastIndex] = std::numeric_limits<int>::min();
+	dAryHeapIncreaseKey(dAryHeap, key, lastIndex, numberOfChildren);
 }
