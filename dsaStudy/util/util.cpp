@@ -29,6 +29,16 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 	return array;
 }
 
+void printVector(const std::vector<int>& vector)
+{
+	for (const auto element : vector)
+	{
+		std::cout << element << ' ';
+	}
+
+	std::cout << '\n';
+}
+
 void printMatrix(const square_matrix_type& matrix)
 {
 	for (const auto& row : matrix)

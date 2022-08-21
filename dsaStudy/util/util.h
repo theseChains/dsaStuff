@@ -37,6 +37,8 @@ void printArray(const std::array<int, util::arraySize>& array);
 
 std::array<int, util::arraySize> generateArray(int minNumber = 0, int maxNumber = 9);
 
+void printVector(const std::vector<int>& vector);
+
 // matrices
 using square_matrix_type = std::vector<std::vector<int>>;
 
