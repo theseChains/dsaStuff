@@ -4,10 +4,15 @@
 #include "../../util/util.h"
 
 // max-priority queue
-int maxMaximum(const std::vector<int>& prQueue);
-int maxExtractMax(std::vector<int>& prQueue);
-void maxIncreaseKey(std::vector<int>& prQueue, int index, int key);
+int maximum(const std::vector<int>& prQueue);
+int extractMax(std::vector<int>& prQueue);
+void increaseKey(std::vector<int>& prQueue, int index, int key);
 void maxPrQueueInsert(std::vector<int>& prQueue, int key);
 
+// min-priority queue
+int minumum(const std::vector<int>& prQueue);
+int extractMin(std::vector<int>& prQueue);
+void decreaseKey(std::vector<int>& prQueue, int index, int key);
+void minPrQueueInsert(std::vector<int>& prQueue, int key);
 
 #endif
