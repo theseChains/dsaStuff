@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data-structures\heap\d-ary-heap.cpp" />
     <ClCompile Include="data-structures\heap\heap.cpp" />
     <ClCompile Include="data-structures\priority-queue\priority-queue.cpp" />
     <ClCompile Include="dsaStudy.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="util\util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data-structures\heap\d-ary-heap.h" />
     <ClInclude Include="data-structures\heap\heap.h" />
     <ClInclude Include="data-structures\priority-queue\priority-queue.h" />
     <ClInclude Include="exercises\exercises.h" />

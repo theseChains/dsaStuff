@@ -1,4 +1,4 @@
-﻿#include "data-structures/priority-queue/priority-queue.h"
+﻿#include "data-structures/heap/d-ary-heap.h"
 #include "util/util.h"
 #include "util/timer.h"
 
@@ -6,36 +6,11 @@ int main()
 {
     Timer timer{};
 
-    std::vector<int> maxPrQueue{ 45, 34, 22, 21, 18, 18, 9, 5, 3, 2 };
-    
-    std::cout << "initial max pr. queue:\n";
-    printVector(maxPrQueue);
-    std::cout << '\n';
+    std::vector<int> dAryHeap{ 9, 7, 8, 6, 6, 5, 2, 3, 4 };
 
-    std::cout << "max element: " << maximum(maxPrQueue) << '\n';
-    std::cout << "extracting max element...\n";
-    int maxElement{ extractMax(maxPrQueue) };
-    std::cout << "extracted element: " << maxElement << "\nnew max pr. queue:\n";
-    printVector(maxPrQueue);
-    std::cout << '\n';
-    
-    std::cout << "increasing 3rd key to 33...\n";
-    increaseKey(maxPrQueue, 2, 33);
-    std::cout << "new max pr. queue:\n";
-    printVector(maxPrQueue);
-    std::cout << '\n';
-
-    std::cout << "inserting key 14...\n";
-    maxPrQueueInsert(maxPrQueue, 14);
-    std::cout << "new max pr. queue:\n";
-    printVector(maxPrQueue);
-    std::cout << '\n';
-
-    std::cout << "deleting element with index 1...\n";
-    maxPrQueueDelete(maxPrQueue, 1);
-    std::cout << "new max pr. queue:\n";
-    printVector(maxPrQueue);
-    std::cout << '\n';
+    std::cout << "max element extracted: " << extractMax(dAryHeap, 3) << '\n';
+    std::cout << "d-ary heap now:\n";
+    printVector(dAryHeap);
 
     return 0;
 }

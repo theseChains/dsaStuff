@@ -81,6 +81,9 @@
     <ClCompile Include="data-structures\priority-queue\priority-queue.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="data-structures\heap\d-ary-heap.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sorting\sorting.h">
@@ -108,6 +111,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="data-structures\priority-queue\priority-queue.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="data-structures\heap\d-ary-heap.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
