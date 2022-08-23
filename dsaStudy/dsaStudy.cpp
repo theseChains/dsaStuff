@@ -11,7 +11,7 @@ int main()
     printArray(numbers);
     std::cout << '\n';
 
-    quickSort(numbers);
+    randomizedQuickSort(numbers);
     std::cout << "sorted array:\n";
     printArray(numbers);
 
