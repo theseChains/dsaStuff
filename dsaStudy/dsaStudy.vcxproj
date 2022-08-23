@@ -151,6 +151,7 @@
     <ClCompile Include="sorting\heapsort.cpp" />
     <ClCompile Include="sorting\insertion.cpp" />
     <ClCompile Include="sorting\merge.cpp" />
+    <ClCompile Include="sorting\quicksort.cpp" />
     <ClCompile Include="sorting\selection.cpp" />
     <ClCompile Include="util\timer.cpp" />
     <ClCompile Include="util\util.cpp" />

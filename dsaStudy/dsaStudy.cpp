@@ -1,4 +1,4 @@
-﻿#include "data-structures/heap/d-ary-heap.h"
+﻿#include "sorting/sorting.h"
 #include "util/util.h"
 #include "util/timer.h"
 
@@ -6,12 +6,14 @@ int main()
 {
     Timer timer{};
 
-    std::vector<int> dAryHeap{ 9, 7, 8, 6, 6, 5, 2, 3, 4 };
+    std::array<int, util::arraySize> numbers{ generateArray() };
+    std::cout << "initial array:\n";
+    printArray(numbers);
+    std::cout << '\n';
 
-    std::cout << "inserting number 10...\n";
-    dAryHeapInsert(dAryHeap, 10, 3);
-    std::cout << "the d-ary heap now looks like:\n";
-    printVector(dAryHeap);
+    quickSort(numbers);
+    std::cout << "sorted array:\n";
+    printArray(numbers);
 
     return 0;
 }

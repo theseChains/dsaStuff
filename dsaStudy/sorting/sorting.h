@@ -17,4 +17,7 @@ void mergeSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, in
 // O(n * lgn)
 void heapSort(std::array<int, util::arraySize>& numbers);
 
+// O(n * lgn)
+void quickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
+
 #endif
