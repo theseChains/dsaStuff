@@ -61,3 +61,42 @@ void randomizedQuickSort(std::array<int, util::arraySize>& numbers, int firstInd
 		randomizedQuickSort(numbers, pivot + 1, lastIndex);
 	}
 }
+
+// the original partition algorithm for quicksort:
+
+int hoarePartition(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
+{
+	int pivot{ numbers[firstIndex] };
+	int backwardIndex{ firstIndex - 1 };
+	int forwardIndex{ lastIndex + 1 };
+
+	while (true)
+	{
+		do
+		{
+			++backwardIndex;
+		} while (numbers[backwardIndex] < pivot);
+
+		do
+		{
+			--forwardIndex;
+		} while (numbers[forwardIndex] > pivot);
+
+		if (backwardIndex >= forwardIndex)
+		{
+			return forwardIndex;
+		}
+	
+		std::swap(numbers[backwardIndex], numbers[forwardIndex]);
+	}
+}
+
+void hoareQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
+{
+	if (firstIndex < lastIndex)
+	{
+		int pivot{ hoarePartition(numbers, firstIndex, lastIndex) };
+		quickSort(numbers, firstIndex, pivot);
+		quickSort(numbers, pivot + 1, lastIndex);
+	}
+}
