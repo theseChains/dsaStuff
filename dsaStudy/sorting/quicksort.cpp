@@ -100,3 +100,18 @@ void hoareQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex, i
 		quickSort(numbers, pivot + 1, lastIndex);
 	}
 }
+
+// in the original quicksort algorithm we make 2 recursive calls
+// we can avoid this by using an iterative control structure
+// this technique is called tail recursion
+
+void tailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
+{
+	while (firstIndex < lastIndex)
+	{
+		// partition and sort left subarray
+		int pivot{ partition(numbers, firstIndex, lastIndex) };
+		tailRecursiveQuickSort(numbers, firstIndex, lastIndex - 1);
+		firstIndex = pivot + 1;
+	}
+}
