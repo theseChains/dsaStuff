@@ -112,6 +112,28 @@ void tailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int first
 		// partition and sort left subarray
 		int pivot{ partition(numbers, firstIndex, lastIndex) };
 		tailRecursiveQuickSort(numbers, firstIndex, lastIndex - 1);
+		// now sort the right subarray
 		firstIndex = pivot + 1;
+	}
+}
+
+// we can further modify this algorithm by making the worst case stack depth O(lgn) instead of O(n)
+
+void modifiedTailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
+{
+	while (firstIndex < lastIndex)
+	{
+		int pivot{ partition(numbers, firstIndex, lastIndex) };
+		// making recursive calls on smaller subarrays
+		if (pivot < (lastIndex - firstIndex) / 2)
+		{
+			modifiedTailRecursiveQuickSort(numbers, firstIndex, pivot - 1);
+			firstIndex = pivot + 1;
+		}
+		else
+		{
+			modifiedTailRecursiveQuickSort(numbers, pivot + 1, lastIndex);
+			lastIndex = pivot - 1;
+		}
 	}
 }

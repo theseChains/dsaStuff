@@ -22,5 +22,6 @@ void quickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, in
 void randomizedQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 void hoareQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 void tailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
+void modifiedTailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 
 #endif
