@@ -1,6 +1,6 @@
 #include "util.h"
 
-int random::getNumber(int min, int max)
+int rnd::getNumber(int min, int max)
 {
 	std::uniform_int_distribution range{ min, max };
 
@@ -23,7 +23,7 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 
 	for (auto& element : array)
 	{
-		element = random::getNumber(minNumber, maxNumber);
+		element = rnd::getNumber(minNumber, maxNumber);
 	}
 
 	return array;
@@ -59,7 +59,7 @@ square_matrix_type generateMatrix(int minNumber, int maxNumber)
 	{
 		for (auto& element : row)
 		{
-			element = random::getNumber(minNumber, maxNumber);
+			element = rnd::getNumber(minNumber, maxNumber);
 		}
 	}
 

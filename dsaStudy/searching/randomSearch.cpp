@@ -10,7 +10,7 @@ int randomSearch(const std::array<int, util::arraySize>& numbers, int value)
 
 	while (checkedCounter != size)
 	{
-		int index{ random::getNumber(0, size - 1) };
+		int index{ rnd::getNumber(0, size - 1) };
 		if (numbers[index] == value)
 		{
 			return index;

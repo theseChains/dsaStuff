@@ -25,7 +25,7 @@ namespace util
 	inline constexpr int subarraySumIndex{ 2 };
 }
 
-namespace random
+namespace rnd
 {
 	inline std::mt19937 mt{ std::random_device{}() };
 

@@ -47,7 +47,7 @@ void quickSort(std::array<int, util::arraySize>& numbers, int firstIndex, int la
 
 int randomizedPartition(std::array<int, util::arraySize>& numbers, int firstIndex, int lastIndex)
 {
-	int randomPivotIndex{ random::getNumber(firstIndex, lastIndex) };
+	int randomPivotIndex{ /*rnd::getNumber(firstIndex, lastIndex)*/ };
 	std::swap(numbers[lastIndex], numbers[randomPivotIndex]);
 	return partition(numbers, firstIndex, lastIndex);
 }

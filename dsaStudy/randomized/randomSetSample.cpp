@@ -13,7 +13,7 @@ std::set<int> getRandomSample(int setSize, int sampleSize)
 	else
 	{
 		std::set<int> sample{ getRandomSample(setSize - 1, sampleSize - 1) };
-		int number{ random::getNumber(1, setSize) };
+		int number{ rnd::getNumber(1, setSize) };
 		if (sample.contains(number))
 		{
 			// this will never merge the same value since setSize 

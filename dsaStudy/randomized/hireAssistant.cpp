@@ -17,7 +17,7 @@ void randomizeInPlace(std::array<int, 10>& array)
 	int size{ static_cast<int>(std::size(array)) };
 	for (int i{ 0 }; i < size; ++i)
 	{
-		int newIndex{ random::getNumber(i, size - 1) };
+		int newIndex{ rnd::getNumber(i, size - 1) };
 		std::swap(array[i], array[newIndex]);
 	}
 }
