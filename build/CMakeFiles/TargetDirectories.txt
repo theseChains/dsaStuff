@@ -1,3 +1,0 @@
-/home/sublunary/repos/dsaStuff/build/CMakeFiles/dsaStudy.exe.dir
-/home/sublunary/repos/dsaStuff/build/CMakeFiles/edit_cache.dir
-/home/sublunary/repos/dsaStuff/build/CMakeFiles/rebuild_cache.dir
