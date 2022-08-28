@@ -15,5 +15,5 @@ int main()
     std::cout << "sorted array:\n";
     printArray(numbers);
 
-    return 0;
+	return 0;
 }
