@@ -11,9 +11,10 @@ int main()
     printArray(numbers);
     std::cout << '\n';
 
-    modifiedTailRecursiveQuickSort(numbers);
+	std::array<int, util::arraySize> result{};
+    countingSort(numbers, result, 10);
     std::cout << "sorted array:\n";
-    printArray(numbers);
+    printArray(result);
 
 	return 0;
 }

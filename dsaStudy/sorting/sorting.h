@@ -24,4 +24,7 @@ void hoareQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 
 void tailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 void modifiedTailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, int firstIndex = 0, int lastIndex = util::arraySize - 1);
 
+// O(n)
+void countingSort(const std::array<int, util::arraySize>& numbers, std::array<int, util::arraySize>& result, int workingStorageSize);
+
 #endif
