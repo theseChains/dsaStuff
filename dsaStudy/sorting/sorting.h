@@ -27,4 +27,7 @@ void modifiedTailRecursiveQuickSort(std::array<int, util::arraySize>& numbers, i
 // O(n)
 void countingSort(const std::array<int, util::arraySize>& numbers, std::array<int, util::arraySize>& result, int workingStorageSize);
 
+// O(d * n)
+void radixSort(std::array<int, util::arraySize>& numbers);
+
 #endif

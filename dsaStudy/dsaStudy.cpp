@@ -6,15 +6,14 @@ int main()
 {
     Timer timer{};
 
-    std::array<int, util::arraySize> numbers{ generateArray() };
+    std::array<int, util::arraySize> numbers{ generateArray(1, 1000) };
     std::cout << "initial array:\n";
     printArray(numbers);
     std::cout << '\n';
 
-	std::array<int, util::arraySize> result{};
-    countingSort(numbers, result, 10);
+	radixSort(numbers);
     std::cout << "sorted array:\n";
-    printArray(result);
+    printArray(numbers);
 
 	return 0;
 }
