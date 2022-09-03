@@ -7,14 +7,11 @@ int rnd::getNumber(int min, int max)
 	return range(mt);
 }
 
-void printArray(const std::array<int, util::arraySize>& array)
+double rnd::getRealNumber(double min, double max)
 {
-	for (const auto element : array)
-	{
-		std::cout << element << ' ';
-	}
+	std::uniform_real_distribution range{ min, max };
 
-	std::cout << '\n';
+	return range(mt);
 }
 
 std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
@@ -24,6 +21,18 @@ std::array<int, util::arraySize> generateArray(int minNumber, int maxNumber)
 	for (auto& element : array)
 	{
 		element = rnd::getNumber(minNumber, maxNumber);
+	}
+
+	return array;
+}
+
+std::array<double, util::arraySize> generateRealArray(int minNumber, int maxNumber)
+{
+	std::array<double, util::arraySize> array{};
+
+	for (auto& element : array)
+	{
+		element = rnd::getRealNumber(minNumber, maxNumber);
 	}
 
 	return array;

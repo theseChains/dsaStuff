@@ -5,15 +5,10 @@
 int main()
 {
     Timer timer{};
-
-    std::array<int, util::arraySize> numbers{ generateArray(1, 1000) };
+    
+    std::array<double, util::arraySize> numbers{ generateRealArray() };
     std::cout << "initial array:\n";
     printArray(numbers);
-    std::cout << '\n';
 
-	radixSort(numbers);
-    std::cout << "sorted array:\n";
-    printArray(numbers);
-
-	return 0;
+    return 0;
 }

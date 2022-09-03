@@ -30,4 +30,7 @@ void countingSort(const std::array<int, util::arraySize>& numbers, std::array<in
 // O(d * n)
 void radixSort(std::array<int, util::arraySize>& numbers);
 
+// O(n)
+void bucketSort(std::array<int, util::arraySize>& numbers);
+
 #endif

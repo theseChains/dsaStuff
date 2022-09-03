@@ -31,12 +31,26 @@ namespace rnd
 	inline std::mt19937 mt{ std::random_device{}() };
 
 	int getNumber(int min = 0, int max = 9);
+
+	// for bucket sort
+	double getRealNumber(double min = 0.0, double max = 1.0);
 }
 
 // arrays
-void printArray(const std::array<int, util::arraySize>& array);
+template <typename T>
+void printArray(const std::array<T, util::arraySize>& array)
+{
+	for (const auto element : array)
+	{
+		std::cout << element << ' ';
+	}
+
+	std::cout << '\n';
+}
 
 std::array<int, util::arraySize> generateArray(int minNumber = 0, int maxNumber = 9);
+
+std::array<double, util::arraySize> generateRealArray(int minNumber = 0.0, int maxNumber = 1.0);
 
 void printVector(const std::vector<int>& vector);
 
