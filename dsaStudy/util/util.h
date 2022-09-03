@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <list>
 #include <random>
 #include <set>
 #include <utility>

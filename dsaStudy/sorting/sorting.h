@@ -31,6 +31,6 @@ void countingSort(const std::array<int, util::arraySize>& numbers, std::array<in
 void radixSort(std::array<int, util::arraySize>& numbers);
 
 // O(n)
-void bucketSort(std::array<int, util::arraySize>& numbers);
+void bucketSort(std::array<double, util::arraySize>& numbers);
 
 #endif

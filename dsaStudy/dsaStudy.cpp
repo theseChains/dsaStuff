@@ -9,6 +9,11 @@ int main()
     std::array<double, util::arraySize> numbers{ generateRealArray() };
     std::cout << "initial array:\n";
     printArray(numbers);
+    std::cout << '\n';
+
+    bucketSort(numbers);
+    std::cout << "sorted array:\n";
+    printArray(numbers);
 
     return 0;
 }
