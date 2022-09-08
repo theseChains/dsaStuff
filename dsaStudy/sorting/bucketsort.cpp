@@ -11,19 +11,25 @@ void bucketSort(std::array<double, util::arraySize>& numbers)
 
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
+		// since numbers are in range [0, 1) we can get the proper index by multiplying it by size
+		// for example, if we had 12 buckets, we would multiply numbers[i] by 12
+		// works kind of like number systems, 10 buckets - decimal number system
 		int bucketIndex{ static_cast<int>(util::arraySize * numbers[i]) };
 		buckets[bucketIndex].push_back(numbers[i]);
 	}
-
+	
+	// sort each bucket
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
+		// should use insertion sort instead since the buckets probably won't be too big
 		std::sort(std::begin(buckets[i]), std::end(buckets[i]));
 	}
 
 	int index{ 0 };
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
-		for (int j{ 0 }; j < buckets[i].size(); ++j)
+		// concatenate all buckets into array
+		for (int j{ 0 }; j < std::size(buckets[i]); ++j)
 		{
 			numbers[index++] = buckets[i][j];
 		}
