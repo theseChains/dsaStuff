@@ -19,7 +19,14 @@ public:
 
 void MyQueue::enqueue(int newValue)
 {
+    if (m_tail + 1 == m_head || m_head == 1 && m_tail == m_array.size())
+    {
+        std::cerr << "queue overflow\n";
+        return;
+    }
+
     m_array[m_tail] = newValue;
+
     if (m_tail == m_array.size())
     {
         m_tail = 0;
@@ -32,6 +39,12 @@ void MyQueue::enqueue(int newValue)
 
 int MyQueue::dequeue()
 {
+    if (m_tail == m_head)
+    {
+        std::cerr << "queue underflow\n";
+        return -1;
+    }
+
     int deletedElement{ m_array[m_head] };
     if (m_head == m_array.size())
     {
