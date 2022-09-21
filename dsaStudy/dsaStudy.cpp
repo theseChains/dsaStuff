@@ -1,4 +1,4 @@
-﻿#include "data-structures/stacks-and-queues/stack.h"
+﻿#include "data-structures/stacks-and-queues/queue.h"
 #include "util/util.h"
 #include "util/timer.h"
 
@@ -6,13 +6,13 @@ int main()
 {
     Timer timer{};
     
-    MyStack stack{};
+    MyQueue queue{};
 
-    stack.push(6);
-    stack.push(3);
-    stack.push(55);
+    queue.enqueue(5);
+    queue.enqueue(66);
+    queue.enqueue(43);
 
-    std::cout << stack.pop() << ' ' << stack.pop() << ' ' << stack.pop() << '\n';
+    std::cout << queue.dequeue() << ' ' << queue.dequeue() << ' ' << queue.dequeue() << '\n';
 
     return 0;
 }
