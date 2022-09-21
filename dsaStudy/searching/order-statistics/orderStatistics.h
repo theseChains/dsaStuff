@@ -19,4 +19,6 @@ int minimum(const std::array<int, util::arraySize>& numbers);
 int randomizedSelect(std::array<int, util::arraySize>& numbers, int index, int firstIndex = 0,
 	int lastIndex = util::arraySize - 1);
 
+
+
 #endif

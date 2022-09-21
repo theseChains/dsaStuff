@@ -41,7 +41,7 @@ namespace rnd
 template <typename T>
 void printArray(const std::array<T, util::arraySize>& array)
 {
-	for (const auto element : array)
+	for (const auto& element : array)
 	{
 		std::cout << element << ' ';
 	}
