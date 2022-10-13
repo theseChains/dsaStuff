@@ -67,6 +67,8 @@ void MyLinkedList::deleteNode(Node*& node)
     {
         node->m_next->m_previous = node->m_previous;
     }
+
+    delete node;
 }
 
 #endif

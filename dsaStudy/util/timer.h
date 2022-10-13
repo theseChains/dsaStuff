@@ -6,9 +6,9 @@
 class Timer
 {
 private:
-	using clock_type = std::chrono::steady_clock;
+	using ClockType = std::chrono::steady_clock;
 
-	std::chrono::time_point<clock_type> m_beginning{};
+	std::chrono::time_point<ClockType> m_beginning{};
 
 public:
 	Timer();

@@ -10,6 +10,8 @@
 #include <iterator>
 #include <limits>
 #include <list>
+#include <map>
+#include <optional>
 #include <random>
 #include <set>
 #include <utility>

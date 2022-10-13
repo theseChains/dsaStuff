@@ -2,15 +2,15 @@
 
 Timer::Timer()
 {
-	m_beginning = clock_type::now();
+	m_beginning = ClockType::now();
 }
 
 void Timer::reset()
 {
-	m_beginning = clock_type::now();
+	m_beginning = ClockType::now();
 }
 
-unsigned long long Timer::elapsed() const 
+unsigned long long Timer::elapsed() const
 {
-	return std::chrono::milliseconds((clock_type::now() - m_beginning).count()).count();
+	return std::chrono::milliseconds((ClockType::now() - m_beginning).count()).count();
 }
