@@ -205,6 +205,9 @@ void MyBinarySearchTree::remove(MyBinarySearchTree* root, int keyToRemove)
             nodeToDeleteSuccessor->m_right->m_parent = nodeToDeleteSuccessor;
         }
 
+        // if the successor is the node's to delete right child, then we replace node to delete
+        // as a child of its parent by its successor and replace successor's left child with
+        // the node's left child
         transplant(root, nodeToDelete, nodeToDeleteSuccessor);
         nodeToDeleteSuccessor->m_left = nodeToDelete->m_left;
         nodeToDeleteSuccessor->m_left->m_parent = nodeToDeleteSuccessor;

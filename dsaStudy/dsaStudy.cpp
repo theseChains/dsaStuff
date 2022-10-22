@@ -1,4 +1,4 @@
-﻿#include "data-structures/binary-search-tree/binary-search-tree.h"
+﻿#include "data-structures/red-black-tree/red-black-tree.h"
 #include "util/util.h"
 #include "util/timer.h"
 
@@ -6,28 +6,16 @@ int main()
 {
     Timer timer{};
 
-    MyBinarySearchTree tree{};
-    MyBinarySearchTree* root{ new MyBinarySearchTree{ 6 } };
+    MyRedBlackTree tree{};
 
-    tree.insert(root, 555);
-    tree.insert(root, 34);
-    tree.insert(root, 32);
-    tree.insert(root, 322);
-    tree.insert(root, 32);
-    tree.insert(root, 78);
+    tree.insertKey(55);
+    tree.insertKey(40);
+    tree.insertKey(65);
+    tree.insertKey(60);
+    tree.insertKey(75);
+    tree.insertKey(57);
 
-    tree.inorderWalk(root);
-    std::cout << '\n';
-
-    tree.remove(root, 322);
-
-    tree.inorderWalk(root);
-    std::cout << '\n';
-
-    tree.remove(root, 78);
-
-    tree.inorderWalk(root);
-    std::cout << '\n';
+    tree.printTree();
 
     return 0;
 }
