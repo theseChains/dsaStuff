@@ -14,5 +14,5 @@ foreach (_headerFile ${dsa_HEADERS})
 endforeach()
 list (REMOVE_DUPLICATES dsa_INCLUDE_DIRS)
 
-add_executable(dsaStudy.exe ${dsa_SOURCES})
-target_include_directories(dsaStudy.exe PRIVATE ${dsa_INCLUDE_DIRS})
+add_executable(app ${dsa_SOURCES})
+target_include_directories(app PRIVATE ${dsa_INCLUDE_DIRS})
