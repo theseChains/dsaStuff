@@ -213,6 +213,84 @@ void MyRedBlackTree::insertFixup(Node* newNode)
 
 void MyRedBlackTree::deleteKey(int keyToDelete)
 {
+    Node* nodeToDelete{ m_null };
+    // gotta find the node first
+    Node* indexNode{ m_root };
+    while (indexNode != m_null)
+    {
+        if (indexNode->m_key == keyToDelete)
+        {
+            nodeToDelete = indexNode;
+        }
+
+        if (indexNode->m_key <= keyToDelete)
+        {
+            indexNode = indexNode->m_right;
+        }
+        else
+        {
+            indexNode = indexNode->m_left;
+        }
+    }
+
+    if (nodeToDelete == m_null)
+    {
+        std::cout << "Key " << keyToDelete << " not found in the tree\n";
+        return;
+    }
+
+    // the algorithm begins here
+    // we maintain someNode as the node either removed from the tree or moved within the tree
+    Node* someNode{ nodeToDelete };
+    // keep the color since it might change
+    Color originalColor{ someNode->m_color };
+    Node* child{};
+    // no left child
+    if (nodeToDelete->m_left == m_null)
+    {
+        child = nodeToDelete->m_right;
+        transplant(nodeToDelete, nodeToDelete->m_right);
+    }
+    // no right child
+    else if (nodeToDelete->m_right == m_null)
+    {
+        child = nodeToDelete->m_left;
+        transplant(nodeToDelete, nodeToDelete->m_left);
+    }
+    // if the nodeToDelete has two children
+    else
+    {
+        // someNode is now the successor of nodeToDelete
+        // thus, it will move into z's position in the tree
+        someNode = findMinimum(nodeToDelete->m_right);
+        originalColor = someNode->m_color;
+        child = someNode->m_right;
+
+        if (someNode->m_parent == nodeToDelete)
+        {
+            child->m_parent = someNode;
+        }
+        else
+        {
+            transplant(someNode, someNode->m_right);
+            someNode->m_right = nodeToDelete->m_right;
+            someNode->m_right->m_parent = someNode;
+        }
+
+        transplant(nodeToDelete, someNode);
+        someNode->m_left = nodeToDelete->m_left;
+        someNode->m_left->m_parent = someNode;
+        someNode->m_color = nodeToDelete->m_color;
+    }
+
+    if (originalColor == Color::black)
+    {
+        deleteFixup(child);
+    }
+}
+
+void MyRedBlackTree::deleteFixup(Node* node)
+{
 
 }
 
@@ -232,6 +310,16 @@ void MyRedBlackTree::transplant(Node*& firstNode, Node*& secondNode)
     }
     // switch parents, doesnt matter if secondNode is m_null:
     secondNode->m_parent = firstNode->m_parent;
+}
+
+Node* MyRedBlackTree::findMinimum(Node* node)
+{
+    while (node->m_left != m_null)
+    {
+        node = node->m_left;
+    }
+
+    return node;
 }
 
 void MyRedBlackTree::printHelper(Node* currentNode, std::string indent, bool last)

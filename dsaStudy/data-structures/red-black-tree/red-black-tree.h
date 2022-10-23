@@ -13,24 +13,24 @@
 // 4) if a node is red, then both children are black
 // 5) all simple paths from the node to descendats leaves contain the same number of black nodes
 
+enum class Color
+{
+    red,
+    black
+};
+
+struct Node
+{
+    int m_key{};
+    Node* m_left{};
+    Node* m_right{};
+    Node* m_parent{};
+    Color m_color{};
+};
+
 class MyRedBlackTree
 {
 private:
-    enum class Color
-    {
-        red,
-        black
-    };
-
-    struct Node
-    {
-        int m_key{};
-        Node* m_left{};
-        Node* m_right{};
-        Node* m_parent{};
-        Color m_color{};
-    };
-
     Node* m_null{}; // a single variable to represent every leaf of the tree
     Node* m_root{};
 
@@ -40,7 +40,7 @@ public:
     // insertion and deletion works in O(lgn) time
     void insertKey(int newKey);
     void deleteKey(int keyToDelete);
-    
+
     void printHelper(Node* currentNode, std::string indent = "", bool last = true);
     void printTree();
 
@@ -54,7 +54,8 @@ private:
 
     // deletion auxiliary functions
     void transplant(Node*& firstNode, Node*& secondNode);
-    void deleteFixup(Node* newNode);
+    void deleteFixup(Node* node);
+    Node* findMinimum(Node* node);
 };
 
 #endif
