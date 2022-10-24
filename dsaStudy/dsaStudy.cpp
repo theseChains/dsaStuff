@@ -16,6 +16,18 @@ int main()
     tree.insertKey(57);
 
     tree.printTree();
+    std::cout << '\n';
+
+    tree.deleteKey(55);
+
+    tree.printTree();
+    std::cout << '\n';
+
+    tree.deleteKey(65);
+    tree.deleteKey(57);
+
+    tree.printTree();
+    std::cout << '\n';
 
     return 0;
 }

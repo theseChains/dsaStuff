@@ -12,20 +12,20 @@ MyRedBlackTree::MyRedBlackTree()
 
 void MyRedBlackTree::leftRotate(Node* nodeToRotate)
 {
-    // we switch our node with it's right child
+    // we switch our node with it's right x
     Node* rightChild{ nodeToRotate->m_right };
-    // turn right child's left subtree into our node's right subtree
+    // turn right x's left subtree into our node's right subtree
     // this preserves the bst property since none of the left subtrees of the right
     // subtrees of a node will have an element smaller than the node
     nodeToRotate->m_right = rightChild->m_left;
 
     if (rightChild->m_left != m_null)
     {
-        // link the child's left child with our node if it exists
+        // link the x's left child with our node if it exists
         rightChild->m_left->m_parent = nodeToRotate;
     }
 
-    rightChild->m_parent = nodeToRotate->m_parent; // switch parents
+    rightChild->m_parent = nodeToRotate->m_parent; // switch parent
 
     if (nodeToRotate->m_parent == m_null)
     {        // if the node was the root, set the new root
@@ -33,12 +33,12 @@ void MyRedBlackTree::leftRotate(Node* nodeToRotate)
     }
     else if (nodeToRotate == nodeToRotate->m_parent->m_left)
     {
-        // if the node was the left child, set the new left child
+        // if the node was the left x, set the new left child
         nodeToRotate->m_parent->m_left = rightChild;
     }
     else
     {
-        // if the node was the right child, set the new right child
+        // if the node was the right x, set the new right child
         nodeToRotate->m_parent->m_right = rightChild;
     }
 
@@ -50,15 +50,15 @@ void MyRedBlackTree::leftRotate(Node* nodeToRotate)
 
 void MyRedBlackTree::rightRotate(Node* nodeToRotate)
 {
-    // now we switch our node with it's left child
+    // now we switch our node with it's left x
     // this algorithm is symmetric to leftRotate
     Node* leftChild{ nodeToRotate->m_left };
 
-    // turn right subtree of child into node's left subtree
+    // turn right subtree of x into node's left subtree
     nodeToRotate->m_left = leftChild->m_right;
     if (leftChild->m_right != m_null)
     {
-        // link new child with the node
+        // link new x with the node
         leftChild->m_right->m_parent = nodeToRotate;
     }
 
@@ -145,7 +145,7 @@ void MyRedBlackTree::insertFixup(Node* newNode)
     // 3. If the tree violates any properties, then it violates at most one of them (property 2 or 4)
     while (newNode->m_parent->m_color == Color::red)
     {
-        // if the uncle is a left child
+        // if the uncle is a left x
         if (newNode->m_parent == newNode->m_parent->m_parent->m_left)
         {
             Node* uncleNode{ newNode->m_parent->m_parent->m_right };
@@ -166,7 +166,7 @@ void MyRedBlackTree::insertFixup(Node* newNode)
             // they correct the lone violation of property 4
             else
             {
-                // case 2: newNode's uncle is black and newNode is a right child
+                // case 2: newNode's uncle is black and newNode is a right x
                 if (newNode == newNode->m_parent->m_right)
                 {
                     // we simply transform this situation into case 3
@@ -174,7 +174,7 @@ void MyRedBlackTree::insertFixup(Node* newNode)
                     leftRotate(newNode);
                 }
 
-                // case 3: newNode's uncle is black and newNode is a left child
+                // case 3: newNode's uncle is black and newNode is a left x
                 newNode->m_parent->m_color = Color::black; // since the newNode is red
                 newNode->m_parent->m_parent->m_color = Color::red; // switch this also
                 // make the newNode->m_parent the parent of both newNode and
@@ -240,61 +240,170 @@ void MyRedBlackTree::deleteKey(int keyToDelete)
     }
 
     // the algorithm begins here
-    // we maintain someNode as the node either removed from the tree or moved within the tree
-    Node* someNode{ nodeToDelete };
-    // keep the color since it might change
-    Color originalColor{ someNode->m_color };
-    Node* child{};
+    // we maintain nodeToMoveOrRemove as the node either removed from the tree or moved within the tree
+    Node* nodeToMoveOrRemove{ nodeToDelete };
+    // keep the color of nodeToDelete since it might change
+    Color originalColor{ nodeToMoveOrRemove->m_color };
+    // this node moves into the nodeToMoveOrRemove's original position
+    Node* x{};
     // no left child
     if (nodeToDelete->m_left == m_null)
     {
-        child = nodeToDelete->m_right;
+        // set the right child
+        x = nodeToDelete->m_right;
+        // switch the nodes
         transplant(nodeToDelete, nodeToDelete->m_right);
     }
     // no right child
     else if (nodeToDelete->m_right == m_null)
     {
-        child = nodeToDelete->m_left;
+        // same as if no left child
+        x = nodeToDelete->m_left;
         transplant(nodeToDelete, nodeToDelete->m_left);
     }
     // if the nodeToDelete has two children
     else
     {
-        // someNode is now the successor of nodeToDelete
-        // thus, it will move into z's position in the tree
-        someNode = findMinimum(nodeToDelete->m_right);
-        originalColor = someNode->m_color;
-        child = someNode->m_right;
+        // nodeToMoveOrRemove is now the successor of nodeToDelete
+        // thus, it will move into nodeToDelete's position in the tree
+        nodeToMoveOrRemove = findMinimum(nodeToDelete->m_right);
+        // save the color of nodeToMoveOrRemove
+        originalColor = nodeToMoveOrRemove->m_color;
+        x = nodeToMoveOrRemove->m_right;
 
-        if (someNode->m_parent == nodeToDelete)
+        // if the successor is a child of nodeToDelete
+        if (nodeToMoveOrRemove->m_parent == nodeToDelete)
         {
-            child->m_parent = someNode;
+            x->m_parent = nodeToMoveOrRemove;
         }
         else
         {
-            transplant(someNode, someNode->m_right);
-            someNode->m_right = nodeToDelete->m_right;
-            someNode->m_right->m_parent = someNode;
+            transplant(nodeToMoveOrRemove, nodeToMoveOrRemove->m_right);
+            nodeToMoveOrRemove->m_right = nodeToDelete->m_right;
+            nodeToMoveOrRemove->m_right->m_parent = nodeToMoveOrRemove;
         }
 
-        transplant(nodeToDelete, someNode);
-        someNode->m_left = nodeToDelete->m_left;
-        someNode->m_left->m_parent = someNode;
-        someNode->m_color = nodeToDelete->m_color;
+        // we replace the node to delete with it's successor
+        transplant(nodeToDelete, nodeToMoveOrRemove);
+        // link left child
+        nodeToMoveOrRemove->m_left = nodeToDelete->m_left;
+        // link parent for left child
+        nodeToMoveOrRemove->m_left->m_parent = nodeToMoveOrRemove;
+        nodeToMoveOrRemove->m_color = nodeToDelete->m_color;
     }
 
+    delete nodeToDelete;
+    // we can safely delete or move the red node, but not a black node
+    // thus we must fix the red-black tree property violations by calling deleteFixup
     if (originalColor == Color::black)
     {
-        deleteFixup(child);
+        deleteFixup(x);
     }
 }
 
+// restores properties 1, 2 and 4
 void MyRedBlackTree::deleteFixup(Node* node)
 {
+    // the goal of the loop is to move teh extra black node up the tree
+    while (node != m_root && node->m_color == Color::black)
+    {
+        // within this loop, node always points to a nonroot doubly black node
+        if (node == node->m_parent->m_left)
+        {
+            Node* sibling{ node->m_parent->m_right };
 
+            if (sibling->m_color == Color::red)
+            {
+                // case 1: node's sibling is red, we convert this case into case 2, 3 or 4
+                sibling->m_color = Color::black;
+                node->m_parent->m_color = Color::red;
+                leftRotate(node->m_parent);
+                sibling = node->m_parent->m_right;
+            }
+
+            if (sibling->m_left->m_color == Color::black &&
+                    sibling->m_right->m_color == Color::black)
+            {
+                // case 2: node's sibling is black, both of sibling's children are black
+                // here we take one black off both node and sibling, leaving node with only
+                // one black and leaving sibling red
+                sibling->m_color = Color::red;
+                // to compensate for this, we add an extra black to parent of node, which was
+                // originally red or black, we do this by repeating the loop with node->parent
+                // as the new node
+                node = node->m_parent;
+            }
+            else
+            {
+                if (sibling->m_right->m_color == Color::black)
+                {
+                    // case 3: node's sibling is black, sibling's left child is red, right child is black
+                    // here we can switch the colors of sibling and its left child and then
+                    // perform a right rotation on sibling without violating the properties
+                    sibling->m_left->m_color = Color::black;
+                    sibling->m_color = Color::red;
+                    rightRotate(sibling);
+                    sibling = node->m_parent->m_right;
+                    // the new sibling of node is now a black node with a red right child,
+                    // thus we have trasnformed case 3 into case 4
+                }
+
+                // case 4: node's sibling is black, sibling's right child is red
+                // here we can remove the extra black on node, making it singly black
+                sibling->m_color = node->m_parent->m_color;
+                node->m_parent->m_color = Color::black;
+                sibling->m_right->m_color = Color::black;
+                leftRotate(node->m_parent);
+                // this causes teh loop to terminate
+                node = m_root;
+            }
+        }
+        // same as above with right and left exchanged
+        else
+        {
+            Node* sibling{ node->m_parent->m_left };
+
+            if (sibling->m_color == Color::red)
+            {
+                // case 1:
+                sibling->m_color = Color::black;
+                node->m_parent->m_color = Color::red;
+                rightRotate(node->m_parent);
+                sibling = node->m_parent->m_left;
+            }
+
+            if (sibling->m_right->m_color == Color::black &&
+                    sibling->m_left->m_color == Color::black)
+            {
+                // case 2:
+                sibling->m_color = Color::red;
+                node = node->m_parent;
+            }
+            else
+            {
+                if (sibling->m_left->m_color == Color::black)
+                {
+                    // case 3:
+                    sibling->m_right->m_color = Color::black;
+                    sibling->m_color = Color::red;
+                    leftRotate(sibling);
+                    sibling = node->m_parent->m_left;
+                }
+
+                // case 4:
+                sibling->m_color = node->m_parent->m_color;
+                node->m_parent->m_color = Color::black;
+                sibling->m_left->m_color = Color::black;
+                rightRotate(node->m_parent);
+                node = m_root;
+            }
+        }
+    }
+
+    node->m_color = Color::black;
 }
 
-void MyRedBlackTree::transplant(Node*& firstNode, Node*& secondNode)
+void MyRedBlackTree::transplant(Node* firstNode, Node* secondNode)
 {
     if (firstNode->m_parent == m_null)
     {
@@ -308,7 +417,7 @@ void MyRedBlackTree::transplant(Node*& firstNode, Node*& secondNode)
     {
         firstNode->m_parent->m_right = secondNode;
     }
-    // switch parents, doesnt matter if secondNode is m_null:
+    // switch parent, doesnt matter if secondNode is m_null:
     secondNode->m_parent = firstNode->m_parent;
 }
 

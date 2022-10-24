@@ -47,13 +47,14 @@ public:
 private:
     // we need to preserve the color and pointer structure if we insert or delete an element
     // we can do this by defining these subroutines to preserve the binary-search-tree property
+    // the goal is to decrease the height of the tree, we move larger subtrees up, smaller down
     void leftRotate(Node* nodeToRotate);
     void rightRotate(Node* nodeToRotate);
 
     void insertFixup(Node* newNode);
 
     // deletion auxiliary functions
-    void transplant(Node*& firstNode, Node*& secondNode);
+    void transplant(Node* firstNode, Node* secondNode);
     void deleteFixup(Node* node);
     Node* findMinimum(Node* node);
 };
