@@ -3,14 +3,15 @@
 // the (binary) heap data structure is an array object that we can
 // view as a nearly complete binary tree
 
-// array: 16-14-10-8-7-9-3-2-4-1
-// binary tree:     16(idx = 0)
-//				  /    \
-//				14      10
-//			  /   \    /  \
-//			 8     7  9    3
-//		    /  \   /
-//		   2   4  1
+/* array: 16-14-10-8-7-9-3-2-4-1
+ binary tree:		16(idx = 0)
+				  /    \
+				14      10
+			  /   \    /  \
+			 8     7  9    3
+		    /  \   /
+		   2   4  1
+*/
 
 int getParentIdx(int heapSize)
 {

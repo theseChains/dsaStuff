@@ -30,7 +30,7 @@ void permuteBySorting(std::array<int, 10>& candidates)
 	std::array<int, 10> priorities{};
 	// now we make sure that all priorities are unique!
 	// (aka exercise 5.3-6)
-	for (int i{ 0 }; i < std::size(priorities); ++i)
+	for (std::size_t i{ 0 }; i < std::size(priorities); ++i)
 	{
 		priorities[i] = i;
 	}
@@ -66,7 +66,7 @@ int hireAssistant(std::array<int, 10>& candidates)
 
 	int bestValue{ -1 };
 	int best{ -1 }; // candidate -1 is a least-qualified dummy candidate
-	for (int i{ 0 }; i < std::size(candidates); ++i)
+	for (std::size_t i{ 0 }; i < std::size(candidates); ++i)
 	{
 		interview(candidates[i]);
 		// candidate i has a probability of 1/i of being better qualified

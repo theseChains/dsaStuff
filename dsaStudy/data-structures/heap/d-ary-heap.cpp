@@ -17,7 +17,7 @@ void dAryMaxHeapify(std::vector<int>& dAryHeap, int numberOfChildren, std::size_
 	for (int i{ 0 }; i < numberOfChildren; ++i)
 	{
 		// get ith child
-		int childIndex{ getChildIndex(index, i, numberOfChildren) };
+		std::size_t childIndex{ static_cast<std::size_t>(getChildIndex(index, i, numberOfChildren)) };
 		if (childIndex < size && dAryHeap[childIndex] > dAryHeap[indexOfLargest])
 		{
 			indexOfLargest = childIndex;

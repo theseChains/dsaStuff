@@ -38,13 +38,13 @@ void merge(std::array<int, util::arraySize>& numbers, int firstIndex, int middle
 	}
 
 	// add the remaining elements if they exist
-	for (firstSubIndex; firstSubIndex < firstSubarraySize; ++firstSubIndex)
+	for (; firstSubIndex < firstSubarraySize; ++firstSubIndex)
 	{
 		numbers[numbersIndex] = firstSubarray[firstSubIndex];
 		++numbersIndex;
 	}
 
-	for (secondSubIndex; secondSubIndex < secondSubarraySize; ++secondSubIndex)
+	for (; secondSubIndex < secondSubarraySize; ++secondSubIndex)
 	{
 		numbers[numbersIndex] = secondSubarray[secondSubIndex];
 		++numbersIndex;

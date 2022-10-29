@@ -29,7 +29,7 @@ void bucketSort(std::array<double, util::arraySize>& numbers)
 	for (int i{ 0 }; i < util::arraySize; ++i)
 	{
 		// concatenate all buckets into array
-		for (int j{ 0 }; j < std::size(buckets[i]); ++j)
+		for (std::size_t j{ 0 }; j < std::size(buckets[i]); ++j)
 		{
 			numbers[index++] = buckets[i][j];
 		}

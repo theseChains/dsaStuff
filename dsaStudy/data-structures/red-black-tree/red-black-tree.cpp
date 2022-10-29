@@ -321,6 +321,7 @@ void MyRedBlackTree::deleteFixup(Node* node)
                 sibling = node->m_parent->m_right;
             }
 
+            // only this case makes the loop repeat
             if (sibling->m_left->m_color == Color::black &&
                     sibling->m_right->m_color == Color::black)
             {

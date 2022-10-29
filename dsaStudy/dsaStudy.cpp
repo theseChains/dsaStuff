@@ -8,23 +8,37 @@ int main()
 
     MyRedBlackTree tree{};
 
-    tree.insertKey(55);
-    tree.insertKey(40);
-    tree.insertKey(65);
-    tree.insertKey(60);
-    tree.insertKey(75);
-    tree.insertKey(57);
+    tree.insertKey(41);
+    tree.insertKey(38);
+    tree.insertKey(31);
+    tree.insertKey(12);
+    tree.insertKey(19);
+    tree.insertKey(8);
 
     tree.printTree();
     std::cout << '\n';
 
-    tree.deleteKey(55);
+    tree.deleteKey(8);
 
     tree.printTree();
     std::cout << '\n';
 
-    tree.deleteKey(65);
-    tree.deleteKey(57);
+    tree.deleteKey(12);
+
+    tree.printTree();
+    std::cout << '\n';
+
+    tree.deleteKey(19);
+
+    tree.printTree();
+    std::cout << '\n';
+
+    tree.deleteKey(31);
+
+    tree.printTree();
+    std::cout << '\n';
+
+    tree.deleteKey(38);
 
     tree.printTree();
     std::cout << '\n';

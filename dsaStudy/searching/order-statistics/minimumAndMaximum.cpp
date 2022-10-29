@@ -6,7 +6,7 @@
 int minimum(const std::array<int, util::arraySize>& numbers)
 {
 	int minimum{ numbers[0] };
-	for (int i{ 1 }; i < std::size(numbers); ++i)
+	for (std::size_t i{ 1 }; i < std::size(numbers); ++i)
 	{
 		if (minimum > numbers[i])
 		{
