@@ -14,5 +14,7 @@ foreach (_headerFile ${dsa_HEADERS})
 endforeach()
 list (REMOVE_DUPLICATES dsa_INCLUDE_DIRS)
 
-add_executable(app ${dsa_SOURCES})
-target_include_directories(app PRIVATE ${dsa_INCLUDE_DIRS})
+add_executable(app.exe ${dsa_SOURCES})
+target_include_directories(app.exe PRIVATE ${dsa_INCLUDE_DIRS})
+
+target_compile_options(app.exe PRIVATE -Wall -Wextra -Wpedantic)
